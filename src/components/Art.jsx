@@ -63,7 +63,7 @@ const Art = ({ setActiveSection }) => {
     <section
       id="art"
       ref={artRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-16 font-body"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-20 font-body"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -76,22 +76,22 @@ const Art = ({ setActiveSection }) => {
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-ff-red-50/10 dark:to-ff-red-900/10"></div>
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold relative z-10 leading-tight font-sixtyfour mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold relative z-10 leading-tight font-sixtyfour mb-6">
             <span className="title-light dark:title-dark">
               DIGITAL ART
             </span>
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-ff-red-400 to-ff-pink-400 mx-auto mb-8"></div>
-          <p className="description-text description-text-lg text-ff-slate leading-relaxed max-w-2xl mx-auto">
-            <span className="text-ff-red-500 dark:text-ff-red-400 text-base opacity-80 font-mono">[</span>
+          <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-ff-red-400 to-ff-pink-400 mx-auto mb-6 sm:mb-8"></div>
+          <p className="description-text description-text-lg text-ff-slate leading-relaxed max-w-2xl mx-auto text-lg sm:text-xl px-4">
+            <span className="text-ff-red-500 dark:text-ff-red-400 text-lg opacity-80 font-mono">[</span>
               Exploring the boundaries of digital creativity through character design, landscapes, and conceptual art.
-            <span className="text-ff-pink-500 dark:text-ff-pink-400 text-base opacity-80 font-mono">]</span>
+            <span className="text-ff-pink-500 dark:text-ff-pink-400 text-lg opacity-80 font-mono">]</span>
           </p>
         </div>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Content Grid - Mobile Optimized */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Portfolio Section */}
           <div className="space-y-6">
             <h3 className="text-2xl font-bold text-ff-red-600 dark:text-ff-red-400 font-sixtyfour text-center">

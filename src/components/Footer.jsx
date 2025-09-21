@@ -29,31 +29,31 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-r from-ff-slate-800 via-ff-red-800 to-ff-purple-800 dark:from-ff-slate-900 dark:via-ff-red-900 dark:to-ff-purple-900 text-ff-slate-800 dark:text-white font-body">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Brand Section */}
-          <div className="md:col-span-2">
+          <div className="sm:col-span-2 lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-                             <div className="w-10 h-10 bg-gradient-to-br from-ff-red-400 to-ff-purple-500 flex items-center justify-center border border-ff-red-300 dark:border-ff-red-400 rounded-lg">
-                 <span className="text-xl">🌸</span>
-               </div>
-               <div className="flex flex-col">
-                 <span className="text-xl font-display font-bold bg-gradient-to-r from-ff-red-400 to-ff-purple-400 bg-clip-text text-transparent">
-                   GamerArtist
-                 </span>
+              <div className="w-10 h-10 bg-gradient-to-br from-ff-red-400 to-ff-purple-500 flex items-center justify-center border border-ff-red-300 dark:border-ff-red-400 rounded-lg">
+                <span className="text-xl">🌸</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg sm:text-xl font-display font-bold bg-gradient-to-r from-ff-red-400 to-ff-purple-400 bg-clip-text text-transparent">
+                  GamerArtist
+                </span>
                 <span className="text-xs text-ff-slate-600 dark:text-ff-slate-400 font-mono">v1.0.0</span>
               </div>
             </div>
-            <p className="text-ff-slate-700 dark:text-ff-slate-300 mb-4 max-w-md font-body text-sm">
+            <p className="text-ff-slate-700 dark:text-ff-slate-300 mb-4 max-w-md font-body text-sm sm:text-base">
               A passionate gamer and digital artist creating immersive experiences through creativity, 
               strategy, and artistic vision. Join me on this journey of pixels and imagination.
             </p>
-            <div className="flex space-x-3">
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.url}
-                                     className="w-8 h-8 bg-white/10 dark:bg-white/5 backdrop-blur-sm border border-white/20 dark:border-white/10 flex items-center justify-center text-base hover:bg-ff-red-500 hover:border-ff-red-400 transition-all duration-200 group rounded-lg"
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-white/10 dark:bg-white/5 backdrop-blur-sm border border-white/20 dark:border-white/10 flex items-center justify-center text-sm sm:text-base hover:bg-ff-red-500 hover:border-ff-red-400 transition-all duration-200 group rounded-lg"
                   title={social.name}
                 >
                   <span className="group-hover:scale-110 transition-transform duration-200">
@@ -94,16 +94,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-ff-slate-300 dark:border-white/10 mt-8 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
-            <div className="text-ff-slate-600 dark:text-ff-slate-400 text-xs font-body">
+        <div className="border-t border-ff-slate-300 dark:border-white/10 mt-6 sm:mt-8 pt-4 sm:pt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
+            <div className="text-ff-slate-600 dark:text-ff-slate-400 text-xs font-body text-center sm:text-left">
               © {currentYear} GamerArtist. All rights reserved. 
-              <span className="ml-2 text-xs font-mono">Built with React & Tailwind CSS</span>
+              <span className="block sm:inline sm:ml-2 text-xs font-mono">Built with React & Tailwind CSS</span>
             </div>
-            <div className="flex items-center space-x-4 text-xs text-ff-slate-600 dark:text-ff-slate-400 font-body">
+            <div className="flex items-center space-x-3 sm:space-x-4 text-xs text-ff-slate-600 dark:text-ff-slate-400 font-body">
               <span>Privacy Policy</span>
               <span>Terms of Service</span>
-                             <span className="text-ff-red-600 dark:text-ff-red-300 font-mono">v1.0.0</span>
+              <span className="text-ff-red-600 dark:text-ff-red-300 font-mono">v1.0.0</span>
             </div>
           </div>
         </div>
