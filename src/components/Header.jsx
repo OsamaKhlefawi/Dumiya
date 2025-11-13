@@ -1,87 +1,67 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import { useTheme } from '../hooks/useTheme'
+import { ThemeToggle } from './ThemeToggle'
 
 const Header = ({ activeSection, setActiveSection }) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [hoveredItem, setHoveredItem] = useState(null)
-  const { isDark, toggleTheme } = useTheme()
+  const { isDark } = useTheme()
   const mobileMenuRef = useRef(null)
-  const navRef = useRef(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+    if (!isMobileMenuOpen) return
+    
+    const handleClickOutside = (e) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(e.target)) {
         setIsMobileMenuOpen(false)
       }
     }
-
-    if (isMobileMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') setIsMobileMenuOpen(false)
-      })
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') setIsMobileMenuOpen(false)
     }
 
+    document.body.style.overflow = 'hidden'
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('keydown', handleEscape)
+    
     return () => {
+      document.body.style.overflow = 'unset'
       document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleEscape)
     }
   }, [isMobileMenuOpen])
 
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
+  const navItems = useMemo(() => [
+    { id: 'home', label: 'Home', icon: 'home', description: 'Welcome to my portfolio' },
+    { id: 'about', label: 'About', icon: 'person', description: 'Learn about my journey' },
+    { id: 'gaming', label: 'Gaming', icon: 'sports_esports', description: 'My gaming achievements' },
+    { id: 'art', label: 'Art', icon: 'palette', description: 'Digital art portfolio' },
+    { id: 'shows-movies', label: 'Shows & Movies', icon: 'movie', description: 'Favorite entertainment' },
+    { id: 'experience', label: 'Experience', icon: 'work', description: 'Work & projects' },
+    { id: 'contact', label: 'Contact', icon: 'email', description: 'Get in touch' }
+  ], [])
 
-    return () => {
-      document.body.style.overflow = 'unset'
-    }
-  }, [isMobileMenuOpen])
-
-  const navItems = [
-    { id: 'home', label: 'Home', icon: 'home', description: 'Welcome to my portfolio', bgColor: 'from-ff-red-50 to-ff-pink-50', darkBgColor: 'from-ff-red-900 to-ff-pink-900' },
-    { id: 'about', label: 'About', icon: 'person', description: 'Learn about my journey', bgColor: 'from-ff-green-50 to-ff-red-50', darkBgColor: 'from-ff-green-900 to-ff-red-900' },
-    { id: 'gaming', label: 'Gaming', icon: 'sports_esports', description: 'My gaming achievements', bgColor: 'from-ff-pink-50 to-ff-red-50', darkBgColor: 'from-ff-pink-900 to-ff-red-900' },
-    { id: 'art', label: 'Art', icon: 'palette', description: 'Digital art portfolio', bgColor: 'from-ff-pink-50 to-ff-orange-50', darkBgColor: 'from-ff-pink-900 to-ff-orange-900' },
-    { id: 'shows-movies', label: 'Shows & Movies', icon: 'movie', description: 'Favorite entertainment', bgColor: 'from-ff-purple-50 to-ff-pink-50', darkBgColor: 'from-ff-purple-900 to-ff-pink-900' },
-    { id: 'experience', label: 'Experience', icon: 'work', description: 'Work & projects', bgColor: 'from-ff-yellow-50 to-ff-red-50', darkBgColor: 'from-ff-yellow-900 to-ff-red-900' },
-    { id: 'contact', label: 'Contact', icon: 'email', description: 'Get in touch', bgColor: 'from-ff-red-50 to-ff-pink-50', darkBgColor: 'from-ff-red-900 to-ff-pink-900' }
-  ]
-
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = useCallback((sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
-      // Add a small delay to ensure smooth scrolling
-      setTimeout(() => {
-        element.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        })
-      }, 100)
-      // Don't set active section immediately - let scroll detection handle it
-      // setActiveSection(sectionId)
+      setTimeout(() => element.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100)
       setIsMobileMenuOpen(false)
     }
-  }
+  }, [])
 
-  const handleKeyDown = (event, sectionId) => {
+  const handleKeyDown = useCallback((event, sectionId) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
       scrollToSection(sectionId)
     }
-  }
+  }, [scrollToSection])
 
   return (
     <>
@@ -103,10 +83,7 @@ const Header = ({ activeSection, setActiveSection }) => {
                       ? 'shadow-xl shadow-rose-300/50 dark:shadow-slate-400/40' 
                       : 'group-hover:bg-gray-300 dark:group-hover:bg-slate-700'
                   }`}
-                  style={{
-                    backgroundColor: 'rgb(248 250 252)' // slate-50 - very light
-                  }}
-                  data-theme="light"
+                  style={{ backgroundColor: 'rgb(248 250 252)' }}
                 ></div>
                 
                 {/* Page that peeks out */}
@@ -121,8 +98,6 @@ const Header = ({ activeSection, setActiveSection }) => {
                       ? (isDark ? 'rgb(51 65 85)' : 'rgb(254 226 226)') 
                       : (isDark ? 'rgb(30 41 59)' : 'rgb(248 250 252)')
                   }}
-                  data-theme="light"
-                  data-dark-bg="rgb(30 41 59)" // slate-800 - darker
                   onClick={() => scrollToSection(item.id)}
                   onKeyDown={(e) => handleKeyDown(e, item.id)}
                   onMouseEnter={() => setHoveredItem(item.id)}
@@ -184,29 +159,8 @@ const Header = ({ activeSection, setActiveSection }) => {
         </div>
       </nav>
 
-      {/* Theme Toggle Button - Fixed positioning */}
       <div className="fixed top-4 right-4 z-[60] hidden lg:block">
-        <button
-          onClick={toggleTheme}
-          className="theme-button w-12 h-12 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease-out focus:outline-none shadow-lg ring-2 ring-rose-200 dark:ring-slate-400 hover:shadow-xl hover:shadow-rose-200/30 dark:hover:shadow-slate-400/30"
-          style={{
-            backgroundColor: isDark ? '#1e293b' : '#f8fafc'
-          }}
-          title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-          aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-        >
-          <div className="text-xl material-icons transition-all duration-300">
-            {isDark ? (
-              <span className="text-yellow-500 hover:text-yellow-400" style={{ filter: 'drop-shadow(0 0 8px rgba(245, 158, 11, 0.5))' }}>
-                light_mode
-              </span>
-            ) : (
-              <span className="text-indigo-600 hover:text-indigo-500" style={{ filter: 'drop-shadow(0 0 8px rgba(79, 70, 229, 0.5))' }}>
-                dark_mode
-              </span>
-            )}
-          </div>
-        </button>
+        <ThemeToggle />
       </div>
 
       {/* Top Header for Mobile */}
@@ -232,30 +186,8 @@ const Header = ({ activeSection, setActiveSection }) => {
               </div>
             </div>
 
-            {/* Theme Toggle Button for Mobile */}
             <div className="flex items-center space-x-2">
-              <button
-                onClick={toggleTheme}
-                className="p-2 border-2 border-rose-200 dark:border-slate-400 rounded-lg focus:outline-none hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-rose-200/30 dark:hover:shadow-slate-400/30"
-                style={{
-                  backgroundColor: isDark ? 'rgba(15, 23, 42, 0.8)' : 'rgba(248, 250, 252, 0.8)'
-                }}
-                title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-                aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-              >
-                <span className="text-xl material-icons transition-all duration-300">
-                  {isDark ? (
-                    <span className="text-yellow-500 hover:text-yellow-400" style={{ filter: 'drop-shadow(0 0 8px rgba(245, 158, 11, 0.5))' }}>
-                      light_mode
-                    </span>
-                  ) : (
-                    <span className="text-indigo-600 hover:text-indigo-500" style={{ filter: 'drop-shadow(0 0 8px rgba(79, 70, 229, 0.5))' }}>
-                      dark_mode
-                    </span>
-                  )}
-                </span>
-              </button>
-
+              <ThemeToggle mobile />
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -315,10 +247,7 @@ const Header = ({ activeSection, setActiveSection }) => {
                 {navItems.map((item) => (
                   <button
                     key={item.id}
-                    onClick={() => {
-                      scrollToSection(item.id)
-                      setIsMobileMenuOpen(false)
-                    }}
+                    onClick={() => scrollToSection(item.id)}
                     className={`w-full flex items-center space-x-4 px-4 py-4 transition-all duration-200 font-ui rounded-xl focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 ${
                       activeSection === item.id
                         ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-lg scale-105'

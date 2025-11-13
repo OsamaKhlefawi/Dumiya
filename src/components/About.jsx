@@ -1,38 +1,17 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useMemo } from 'react'
+import { useSectionScroll } from '../hooks/useSectionScroll'
 
 const About = ({ setActiveSection }) => {
-  const aboutRef = useRef(null)
+  const aboutRef = useSectionScroll('about', setActiveSection)
 
-  useEffect(() => {
-    let timeoutId;
-    const handleScroll = () => {
-      clearTimeout(timeoutId); // Clear any pending timeout
-      // Set a new timeout to delay the section detection
-      timeoutId = setTimeout(() => {
-        if (aboutRef.current) {
-          const rect = aboutRef.current.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          
-          // Only set active section when the section is properly centered in the viewport
-          // Check if the section takes up at least 50% of the viewport
-          if (rect.top <= windowHeight * 0.3 && rect.bottom >= windowHeight * 0.7) {
-            setActiveSection('about')
-          }
-        }
-      }, 30); // Reduced delay for more responsive detection
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [setActiveSection])
-
-  const skills = [
+  const skills = useMemo(() => [
     { name: 'Digital Art', level: 90, color: 'from-ff-pink-500 to-ff-red-500' },
     { name: 'Gaming Strategy', level: 85, color: 'from-ff-red-500 to-ff-orange-500' },
     { name: 'Creative Design', level: 88, color: 'from-ff-pink-500 to-ff-orange-500' },
     { name: 'Problem Solving', level: 82, color: 'from-ff-green-500 to-ff-emerald-500' },
     { name: 'Team Collaboration', level: 87, color: 'from-ff-orange-500 to-ff-red-500' },
     { name: 'Technical Skills', level: 80, color: 'from-ff-indigo-500 to-ff-red-500' }
-  ]
+  ], [])
 
   return (
     <section

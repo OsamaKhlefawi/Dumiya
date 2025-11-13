@@ -1,30 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useMemo } from 'react'
+import { useSectionScroll } from '../hooks/useSectionScroll'
 
 const Art = ({ setActiveSection }) => {
   const [activeCategory, setActiveCategory] = useState('all')
-  const artRef = useRef(null)
-
-  useEffect(() => {
-    let timeoutId;
-    const handleScroll = () => {
-      clearTimeout(timeoutId); // Clear any pending timeout
-      // Set a new timeout to delay the section detection
-      timeoutId = setTimeout(() => {
-        if (artRef.current) {
-          const rect = artRef.current.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          
-          // Only set active section when the section is properly centered in the viewport
-          // Check if the section takes up at least 50% of the viewport
-          if (rect.top <= windowHeight * 0.3 && rect.bottom >= windowHeight * 0.7) {
-            setActiveSection('art')
-          }
-        }
-      }, 30); // Reduced delay for more responsive detection
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [setActiveSection])
+  const artRef = useSectionScroll('art', setActiveSection)
 
   const categories = [
     { id: 'all', label: 'All', icon: '🎨', color: 'from-ff-red-500 to-ff-pink-500' },

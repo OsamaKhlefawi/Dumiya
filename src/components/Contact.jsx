@@ -1,29 +1,8 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useMemo } from 'react'
+import { useSectionScroll } from '../hooks/useSectionScroll'
 
 const Contact = ({ setActiveSection }) => {
-  const contactRef = useRef(null)
-
-  useEffect(() => {
-    let timeoutId;
-    const handleScroll = () => {
-      clearTimeout(timeoutId); // Clear any pending timeout
-      // Set a new timeout to delay the section detection
-      timeoutId = setTimeout(() => {
-        if (contactRef.current) {
-          const rect = contactRef.current.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          
-          // Only set active section when the section is properly centered in the viewport
-          // Check if the section takes up at least 50% of the viewport
-          if (rect.top <= windowHeight * 0.3 && rect.bottom >= windowHeight * 0.7) {
-            setActiveSection('contact')
-          }
-        }
-      }, 30); // Reduced delay for more responsive detection
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [setActiveSection])
+  const contactRef = useSectionScroll('contact', setActiveSection)
 
   const socialLinks = [
     { name: 'Discord', icon: '💬', url: '#', color: 'from-ff-indigo-500 to-ff-purple-500' },

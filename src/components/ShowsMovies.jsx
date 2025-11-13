@@ -1,26 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
+import { useSectionScroll } from '../hooks/useSectionScroll'
 
 const ShowsMovies = ({ setActiveSection }) => {
-  const showsMoviesRef = useRef(null);
-
-  useEffect(() => {
-    let timeoutId;
-    const handleScroll = () => {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        if (showsMoviesRef.current) {
-          const rect = showsMoviesRef.current.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          
-          if (rect.top <= windowHeight * 0.3 && rect.bottom >= windowHeight * 0.7) {
-            setActiveSection("shows-movies");
-          }
-        }
-      }, 30);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [setActiveSection]);
+  const showsMoviesRef = useSectionScroll('shows-movies', setActiveSection);
 
   return (
     <section

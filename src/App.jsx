@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react'
+import React, { useState, Suspense, lazy } from 'react'
 import { ThemeProvider } from './contexts/ThemeContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -27,24 +27,14 @@ function App() {
         
         {/* Main content with proper left margin for desktop */}
         <main className="lg:ml-16 relative z-10">
-          <Hero id="home" setActiveSection={setActiveSection} />
+          <Hero setActiveSection={setActiveSection} />
           <Suspense fallback={<LoadingSpinner />}>
-            <About id="about" setActiveSection={setActiveSection} />
-          </Suspense>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Gaming id="gaming" setActiveSection={setActiveSection} />
-          </Suspense>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Art id="art" setActiveSection={setActiveSection} />
-          </Suspense>
-          <Suspense fallback={<LoadingSpinner />}>
-            <ShowsMovies id="shows-movies" setActiveSection={setActiveSection} />
-          </Suspense>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Experience id="experience" setActiveSection={setActiveSection} />
-          </Suspense>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Contact id="contact" setActiveSection={setActiveSection} />
+            <About setActiveSection={setActiveSection} />
+            <Gaming setActiveSection={setActiveSection} />
+            <Art setActiveSection={setActiveSection} />
+            <ShowsMovies setActiveSection={setActiveSection} />
+            <Experience setActiveSection={setActiveSection} />
+            <Contact setActiveSection={setActiveSection} />
           </Suspense>
         </main>
         

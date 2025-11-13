@@ -1,29 +1,22 @@
-import React, { useEffect, useRef } from "react";
+import React, { useMemo } from "react";
+import { useSectionScroll } from '../hooks/useSectionScroll'
+import { FloatingIcon } from './FloatingIcon'
 
 const Hero = ({ setActiveSection }) => {
-  const heroRef = useRef(null);
+  const heroRef = useSectionScroll('home', setActiveSection)
 
-  useEffect(() => {
-    let timeoutId;
-    const handleScroll = () => {
-      clearTimeout(timeoutId); // Clear any pending timeout
-      // Set a new timeout to delay the section detection
-      timeoutId = setTimeout(() => {
-        if (heroRef.current) {
-          const rect = heroRef.current.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-          
-          // Only set active section when the section is properly centered in the viewport
-          // Check if the section takes up at least 50% of the viewport
-          if (rect.top <= windowHeight * 0.3 && rect.bottom >= windowHeight * 0.7) {
-            setActiveSection("home");
-          }
-        }
-      }, 30); // Reduced delay for more responsive detection
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [setActiveSection]);
+  const icons = useMemo(() => [
+    { src: '/assets/PersonaLogo.png', alt: 'Persona', tooltip: 'Persona', className: 'top-5 left-4 lg:top-5 lg:left-4 w-16 h-16 lg:w-20 lg:h-20', animate: 'float-slow', borderColor: 'ff-red-200/50 dark:border-ff-red-600/30' },
+    { src: '/assets/DeltaruneIcon.png', alt: 'Deltarune', tooltip: 'Deltarune', className: 'top-4 right-22 lg:top-4 lg:right-22 w-14 h-14 lg:w-18 lg:h-18', animate: 'float-medium', borderColor: 'ff-pink-200/50 dark:border-ff-pink-600/30' },
+    { src: '/assets/jjbaIcon.png', alt: "JoJo's Bizarre Adventure", tooltip: "JoJo's Bizarre Adventure", className: 'top-26 right-63 lg:top-26 lg:right-63 w-14 h-14 lg:w-18 lg:h-18', animate: 'float-fast', borderColor: 'ff-orange-200/50 dark:border-ff-orange-600/30' },
+    { src: '/assets/nierIcon.png', alt: 'NieR', tooltip: 'NieR', className: 'top-40 -right-10 lg:top-40 lg:-right-10 w-16 h-16 lg:w-20 lg:h-20', animate: 'float-slow', borderColor: 'ff-slate-200/50 dark:border-ff-slate-600/30' },
+    { src: '/assets/omoriIcon.png', alt: 'Omori', tooltip: 'Omori', className: 'bottom-13 -left-5 lg:bottom-13 lg:-left-5 w-18 h-14 lg:w-22 lg:h-17', animate: 'float-medium', borderColor: 'ff-indigo-200/50 dark:border-ff-indigo-600/30' },
+    { src: '/assets/ffIcon.png', alt: 'Final Fantasy', tooltip: 'Final Fantasy', className: 'bottom-4 right-15 lg:bottom-4 lg:right-15 w-20 h-16 lg:w-26 lg:h-20 z-10', animate: 'float-fast', borderColor: 'ff-gold-200/50 dark:border-ff-gold-600/30' },
+    { src: '/assets/mpIcon.png', alt: 'MP', tooltip: 'Mob Psycho 100', className: 'top-22 left-24 lg:top-22 lg:left-24 w-14 h-14 lg:w-17 lg:h-17', animate: 'float-slow', borderColor: 'ff-purple-200/50 dark:border-ff-purple-600/30' },
+    { src: '/assets/dexIcon.png', alt: 'DEX', tooltip: 'Dexter', className: 'top-32 right-17 lg:top-32 lg:right-17 w-16 h-14 lg:w-20 lg:h-16', animate: 'float-medium', borderColor: 'ff-blue-200/50 dark:border-ff-blue-600/30' },
+    { src: '/assets/hkIcon.png', alt: 'Hollow Knight', tooltip: 'Hollow Knight', className: 'bottom-50 right-4 lg:bottom-50 lg:right-4 w-12 h-12 lg:w-15 lg:h-15', animate: 'float-fast', borderColor: 'ff-green-200/50 dark:border-ff-green-600/30' },
+    { src: '/assets/evaIcon.png', alt: 'EVA', tooltip: 'Neon Genesis Evangelion', className: 'bottom-20 left-20 lg:bottom-20 lg:left-20 w-14 h-14 lg:w-17 lg:h-17', animate: 'float-slow', borderColor: 'ff-cyan-200/50 dark:border-ff-cyan-600/30' }
+  ], [])
 
 
 
@@ -92,113 +85,18 @@ const Hero = ({ setActiveSection }) => {
               {/* Background glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-ff-red-500/10 to-ff-pink-500/10 dark:from-ff-red-600/20 dark:to-ff-pink-600/20 rounded-full blur-3xl"></div>
               
-              {/* Floating Game Logos Container */}
               <div className="relative w-full h-full">
-                {/* Persona Logo */}
-                <div className="absolute top-5 left-4 lg:top-5 lg:left-4 w-16 h-16 lg:w-20 lg:h-20 bg-slate-100 dark:bg-slate-800/90 rounded-xl flex items-center justify-center shadow-lg animate-float-slow hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-red-200/50 dark:border-ff-red-600/30">
-                  <img src="/assets/PersonaLogo.png" alt="Persona" className="w-12 h-12 lg:w-16 lg:h-16 object-contain group-hover:animate-pulse" loading="lazy" decoding="async" />
-                  {/* Tooltip */}
-                  <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[9999] backdrop-blur-sm border border-slate-700 dark:border-slate-600">
-                    Persona
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800 dark:border-t-slate-900"></div>
-                  </div>
-                </div>
-                
-                {/* Deltarune Logo */}
-                <div className="absolute top-4 right-22 lg:top-4 lg:right-22 w-14 h-14 lg:w-18 lg:h-18 bg-slate-100 dark:bg-slate-800/90 rounded-lg flex items-center justify-center shadow-lg animate-float-medium hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-pink-200/50 dark:border-ff-pink-600/30">
-                  <img src="/assets/DeltaruneIcon.png" alt="Deltarune" className="w-10 h-10 lg:w-14 lg:h-14 object-contain group-hover:animate-pulse" loading="lazy" decoding="async" />
-                  {/* Tooltip */}
-                  <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[9999] backdrop-blur-sm border border-slate-700 dark:border-slate-600">
-                    Deltarune
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800 dark:border-t-slate-900"></div>
-                  </div>
-                </div>
-                
-                {/* JJBA Logo */}
-                <div className="absolute top-26 right-63 lg:top-26 lg:right-63 w-14 h-14 lg:w-18 lg:h-18 bg-slate-100 dark:bg-slate-800/90 rounded-lg flex items-center justify-center shadow-lg animate-float-fast hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-orange-200/50 dark:border-ff-orange-600/30">
-                  <img src="/assets/jjbaIcon.png" alt="JoJo's Bizarre Adventure" className="w-12 h-12 lg:w-17 lg:h-17 object-contain group-hover:animate-pulse" loading="lazy" decoding="async" />
-                  {/* Tooltip */}
-                  <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[9999] backdrop-blur-sm border border-slate-700 dark:border-slate-600">
-                    JoJo's Bizarre Adventure
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800 dark:border-t-slate-900"></div>
-                  </div>
-                </div>
-                
-                {/* Nier Logo */}
-                <div className="absolute top-40 -right-10 lg:top-40 lg:-right-10 w-16 h-16 lg:w-20 lg:h-20 bg-slate-100 dark:bg-slate-800/90 rounded-xl flex items-center justify-center shadow-lg animate-float-slow hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-slate-200/50 dark:border-ff-slate-600/30">
-                  <img src="/assets/nierIcon.png" alt="NieR" className="w-14 h-14 lg:w-18 lg:h-18 object-contain group-hover:animate-pulse" loading="lazy" decoding="async" />
-                  {/* Tooltip */}
-                  <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[9999] backdrop-blur-sm border border-slate-700 dark:border-slate-600">
-                    NieR
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800 dark:border-t-slate-900"></div>
-                  </div>
-                </div>
-                
-                {/* Omori Logo */}
-                <div className="absolute bottom-13 -left-5 lg:bottom-13 lg:-left-5 w-18 h-14 lg:w-22 lg:h-17 bg-slate-100 dark:bg-slate-800/90 rounded-lg flex items-center justify-center shadow-lg animate-float-medium hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-indigo-200/50 dark:border-ff-indigo-600/30">
-                  <img src="/assets/omoriIcon.png" alt="Omori" className="w-14 h-14 lg:w-18 lg:h-18 object-contain group-hover:animate-pulse icon-invert-light" loading="lazy" decoding="async" />
-                  {/* Tooltip */}
-                  <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[9999] backdrop-blur-sm border border-slate-700 dark:border-slate-600">
-                    Omori
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800 dark:border-t-slate-900"></div>
-                  </div>
-                </div>
-                
-                {/* Final Fantasy Logo */}
-                <div className="absolute bottom-4 right-15 lg:bottom-4 lg:right-15 w-20 h-16 lg:w-26 lg:h-20 bg-slate-100 dark:bg-slate-800/90 rounded-2xl flex items-center justify-center shadow-lg animate-float-fast hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-gold-200/50 dark:border-ff-gold-600/30 z-10">
-                  <img src="/assets/ffIcon.png" alt="Final Fantasy" className="w-20 h-20 lg:w-25 lg:h-25 object-contain group-hover:animate-pulse icon-invert-light" loading="lazy" decoding="async" />
-                  {/* Tooltip */}
-                  <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[9999] backdrop-blur-sm border border-slate-700 dark:border-slate-600">
-                    Final Fantasy
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800 dark:border-t-slate-900"></div>
-                  </div>
-                </div>
-                
-                {/* MP Logo */}
-                <div className="absolute top-22 left-24 lg:top-22 lg:left-24 w-14 h-14 lg:w-17 lg:h-17 bg-slate-100 dark:bg-slate-800/90 rounded-xl flex items-center justify-center shadow-lg animate-float-slow hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-purple-200/50 dark:border-ff-purple-600/30">
-                  <img src="/assets/mpIcon.png" alt="MP" className="w-12 h-12 lg:w-15 lg:h-15 object-contain group-hover:animate-pulse" loading="lazy" decoding="async" />
-                  {/* Tooltip */}
-                  <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[9999] backdrop-blur-sm border border-slate-700 dark:border-slate-600">
-                    Mob Psycho 100
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800 dark:border-t-slate-900"></div>
-                  </div>
-                </div>
-                
-                {/* DEX Logo */}
-                <div className="absolute top-32 right-17 lg:top-32 lg:right-17 w-16 h-14 lg:w-20 lg:h-16 bg-slate-100 dark:bg-slate-800/90 rounded-xl flex items-center justify-center shadow-lg animate-float-medium hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-blue-200/50 dark:border-ff-blue-600/30">
-                  <img src="/assets/dexIcon.png" alt="DEX" className="w-12 h-12 lg:w-15 lg:h-15 object-contain group-hover:animate-pulse" loading="lazy" decoding="async" />
-                  {/* Tooltip */}
-                  <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[9999] backdrop-blur-sm border border-slate-700 dark:border-slate-600">
-                    Dexter
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800 dark:border-t-slate-900"></div>
-                  </div>
-                </div>
-                
-                {/* Hollow Knight Logo */}
-                <div className="absolute bottom-50 right-4 lg:bottom-50 lg:right-4 w-12 h-12 lg:w-15 lg:h-15 bg-slate-100 dark:bg-slate-800/90 rounded-lg flex items-center justify-center shadow-lg animate-float-fast hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-green-200/50 dark:border-ff-green-600/30">
-                  <img src="/assets/hkIcon.png" alt="Hollow Knight" className="w-8 h-8 lg:w-10 lg:h-10 object-contain group-hover:animate-pulse" loading="lazy" decoding="async" />
-                  {/* Tooltip */}
-                  <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[9999] backdrop-blur-sm border border-slate-700 dark:border-slate-600">
-                    Hollow Knight
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800 dark:border-t-slate-900"></div>
-                  </div>
-                </div>
-                
-                {/* EVA Logo */}
-                <div className="absolute bottom-20 left-20 lg:bottom-20 lg:left-20 w-14 h-14 lg:w-17 lg:h-17 bg-slate-100 dark:bg-slate-800/90 rounded-xl flex items-center justify-center shadow-lg animate-float-slow hover:scale-110 transition-all duration-500 cursor-pointer group backdrop-blur-sm border border-ff-cyan-200/50 dark:border-ff-cyan-600/30">
-                  <img src="/assets/evaIcon.png" alt="EVA" className="w-12 h-12 lg:w-18 lg:h-18 object-contain group-hover:animate-pulse" loading="lazy" decoding="async" />
-                  {/* Tooltip */}
-                  <div className="absolute -top-14 left-1/2 transform -translate-x-1/2 bg-slate-800 dark:bg-slate-900 text-white text-xs font-medium px-3 py-2 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap z-[9999] backdrop-blur-sm border border-slate-700 dark:border-slate-600">
-                    Neon Genesis Evangelion
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-800 dark:border-t-slate-900"></div>
-                  </div>
-                </div>
-                
-                {/* Additional floating elements */}
-                <div className="absolute top-24 right-20 lg:top-24 lg:right-20 w-4 h-4 lg:w-6 lg:h-6 bg-ff-red-400 rounded-full animate-float-slow opacity-60"></div>
-                <div className="absolute bottom-24 left-20 lg:bottom-24 lg:left-20 w-3 h-3 lg:w-4 lg:h-4 bg-ff-pink-400 rounded-full animate-float-medium opacity-60"></div>
-                <div className="absolute top-40 left-20 lg:top-40 lg:left-20 w-4 h-4 lg:w-5 lg:h-5 bg-ff-gold-400 rounded-full animate-float-fast opacity-60"></div>
-                <div className="absolute bottom-40 right-16 lg:bottom-40 lg:right-16 w-2 h-2 lg:w-3 lg:h-3 bg-ff-purple-400 rounded-full animate-float-slow opacity-60"></div>
+                {icons.map((icon, i) => (
+                  <FloatingIcon key={i} {...icon} />
+                ))}
+                {[
+                  { className: 'top-24 right-20 lg:top-24 lg:right-20 w-4 h-4 lg:w-6 lg:h-6 bg-ff-red-400', animate: 'float-slow' },
+                  { className: 'bottom-24 left-20 lg:bottom-24 lg:left-20 w-3 h-3 lg:w-4 lg:h-4 bg-ff-pink-400', animate: 'float-medium' },
+                  { className: 'top-40 left-20 lg:top-40 lg:left-20 w-4 h-4 lg:w-5 lg:h-5 bg-ff-gold-400', animate: 'float-fast' },
+                  { className: 'bottom-40 right-16 lg:bottom-40 lg:right-16 w-2 h-2 lg:w-3 lg:h-3 bg-ff-purple-400', animate: 'float-slow' }
+                ].map((dot, i) => (
+                  <div key={i} className={`absolute ${dot.className} rounded-full animate-${dot.animate} opacity-60`} />
+                ))}
               </div>
               
               {/* Title */}
