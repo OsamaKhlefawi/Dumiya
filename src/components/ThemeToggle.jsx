@@ -5,7 +5,7 @@ export const ThemeToggle = ({ className = '', mobile = false }) => {
   const { isDark, toggleTheme } = useTheme()
   const bgColor = mobile 
     ? (isDark ? 'rgba(15, 23, 42, 0.8)' : 'rgba(248, 250, 252, 0.8)')
-    : (isDark ? '#1e293b' : '#f8fafc')
+    : (isDark ? '#1c1917' : '#fafaf9')
   
   const buttonClass = mobile
     ? "p-2 border-2 border-ff-red-200 dark:border-ff-slate-600 rounded-lg focus:outline-none hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-ff-red-200/30 dark:hover:shadow-ff-slate-600/30"

@@ -92,7 +92,7 @@ const Gaming = ({ setActiveSection }) => {
               {/* Mobile: Horizontal Scroll, Desktop: Grid */}
               <div className="flex lg:grid lg:grid-cols-2 gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
                 {favoriteGames.map((game, index) => (
-                  <div key={index} className="min-w-[280px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-orange-200 dark:border-ff-orange-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                  <div key={index} className="min-w-[280px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-orange-300 dark:border-ff-orange-700 rounded-xl p-4 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
                     <div className="flex items-center gap-3 mb-2">
                       <div 
                         className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
@@ -119,7 +119,7 @@ const Gaming = ({ setActiveSection }) => {
                 📚 BACKLOGGD
               </h3>
               
-              <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-red-200 dark:border-ff-red-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-red-300 dark:border-ff-red-700 rounded-xl p-4 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="space-y-3">
                   {/* Profile Header */}
                   <div className="text-center">
@@ -136,19 +136,19 @@ const Gaming = ({ setActiveSection }) => {
 
                   {/* Stats Grid */}
                   <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                    <div className="bg-white/60 dark:bg-ff-slate-700/50 rounded-lg p-2 sm:p-3 text-center border border-ff-red-200 dark:border-ff-red-800">
+                    <div className="bg-white/60 dark:bg-ff-slate-700/50 rounded-lg p-2 sm:p-3 text-center border border-ff-red-300 dark:border-ff-red-800">
                       <div className="text-xl sm:text-2xl font-bold text-ff-red-700 dark:text-ff-red-300">{backloggdProfile.stats.played}</div>
                       <div className="text-xs text-ff-slate-600 dark:text-ff-slate-400">Played</div>
                     </div>
-                    <div className="bg-white/60 dark:bg-ff-slate-700/50 rounded-lg p-2 sm:p-3 text-center border border-ff-orange-200 dark:border-ff-orange-800">
+                    <div className="bg-white/60 dark:bg-ff-slate-700/50 rounded-lg p-2 sm:p-3 text-center border border-ff-orange-300 dark:border-ff-orange-800">
                       <div className="text-xl sm:text-2xl font-bold text-ff-orange-700 dark:text-ff-orange-300">{backloggdProfile.stats.playing}</div>
                       <div className="text-xs text-ff-slate-600 dark:text-ff-slate-400">Playing</div>
                     </div>
-                    <div className="bg-white/60 dark:bg-ff-slate-700/50 rounded-lg p-2 sm:p-3 text-center border border-ff-gold-200 dark:border-ff-gold-800">
+                    <div className="bg-white/60 dark:bg-ff-slate-700/50 rounded-lg p-2 sm:p-3 text-center border border-ff-gold-300 dark:border-ff-gold-800">
                       <div className="text-xl sm:text-2xl font-bold text-ff-gold-700 dark:text-ff-gold-300">{backloggdProfile.stats.backlog}</div>
                       <div className="text-xs text-ff-slate-600 dark:text-ff-slate-400">Backlog</div>
                     </div>
-                    <div className="bg-white/60 dark:bg-ff-slate-700/50 rounded-lg p-2 sm:p-3 text-center border border-ff-pink-200 dark:border-ff-pink-800">
+                    <div className="bg-white/60 dark:bg-ff-slate-700/50 rounded-lg p-2 sm:p-3 text-center border border-ff-pink-300 dark:border-ff-pink-800">
                       <div className="text-xl sm:text-2xl font-bold text-ff-pink-700 dark:text-ff-pink-300">⭐{backloggdProfile.stats.rating}</div>
                       <div className="text-xs text-ff-slate-600 dark:text-ff-slate-400">Avg Rating</div>
                     </div>
@@ -184,7 +184,7 @@ const Gaming = ({ setActiveSection }) => {
             </h3>
             <div className="flex lg:grid lg:grid-cols-3 gap-4 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
               {gameDevProjects.map((project, index) => (
-                <div key={index} className="min-w-[300px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-gold-200 dark:border-ff-gold-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                <div key={index} className="min-w-[300px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-gold-300 dark:border-ff-gold-700 rounded-xl p-4 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
                   <div className="flex items-center gap-3 mb-3">
                     <div 
                       className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"

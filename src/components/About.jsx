@@ -40,7 +40,7 @@ const About = ({ setActiveSection }) => {
         </div>
 
         {/* Intro Box - Mobile: Compact, Desktop: Larger */}
-        <div className="relative bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 backdrop-blur-sm border-2 border-ff-red-200 dark:border-ff-red-700 rounded-xl p-4 lg:p-8 mb-6 lg:mb-16 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+        <div className="relative bg-white dark:bg-ff-slate-800 backdrop-blur-sm border-2 border-ff-red-300 dark:border-ff-red-700 rounded-xl p-4 lg:p-8 mb-6 lg:mb-16 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
 
           <div className="relative z-10">
             <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
@@ -62,7 +62,7 @@ const About = ({ setActiveSection }) => {
         {/* Detailed Sections - Stack on mobile, Grid on desktop */}
         <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {/* Art Section - Mobile: Compact Card */}
-          <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-purple-200 dark:border-ff-purple-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+          <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-purple-300 dark:border-ff-purple-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
             <div className="flex items-center gap-3 mb-3">
               <div 
                 className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
@@ -87,7 +87,7 @@ const About = ({ setActiveSection }) => {
           </div>
 
           {/* Gaming Section - Mobile: Compact Card */}
-          <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-orange-200 dark:border-ff-orange-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+          <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-orange-300 dark:border-ff-orange-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
             <div className="flex items-center gap-3 mb-3">
               <div 
                 className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
@@ -112,7 +112,7 @@ const About = ({ setActiveSection }) => {
           </div>
 
           {/* Coding Section - Mobile: Compact Card */}
-          <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-blue-200 dark:border-ff-blue-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+          <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-blue-300 dark:border-ff-blue-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
             <div className="flex items-center gap-3 mb-3">
               <div 
                 className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"

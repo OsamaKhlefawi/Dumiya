@@ -77,8 +77,8 @@ const Header = ({ activeSection, setActiveSection }) => {
                 }`}
                 style={{
                   backgroundColor: activeSection === item.id
-                    ? (isDark ? 'rgb(51 65 85)' : 'rgb(254 226 226)')
-                    : (isDark ? 'rgb(30 41 59)' : 'rgb(248 250 252)')
+                    ? (isDark ? 'rgb(68 64 60)' : 'rgb(254 226 226)')
+                    : (isDark ? 'rgb(28 25 23)' : 'rgb(250 250 249)')
                 }}
               ></div>
               
@@ -88,8 +88,8 @@ const Header = ({ activeSection, setActiveSection }) => {
                 }`}
                 style={{
                   backgroundColor: activeSection === item.id 
-                    ? (isDark ? 'rgb(51 65 85)' : 'rgb(254 226 226)') 
-                    : (isDark ? 'rgb(30 41 59)' : 'rgb(248 250 252)')
+                    ? (isDark ? 'rgb(68 64 60)' : 'rgb(254 226 226)') 
+                    : (isDark ? 'rgb(28 25 23)' : 'rgb(250 250 249)')
                 }}
                 onClick={() => scrollToSection(item.id)}
                 onMouseEnter={() => setHoveredItem(item.id)}
@@ -134,8 +134,8 @@ const Header = ({ activeSection, setActiveSection }) => {
             left: 0,
             right: 0,
             zIndex: 10000,
-            backgroundColor: isDark ? '#0f172a' : '#ffffff',
-            borderBottom: isDark ? '1px solid #334155' : '1px solid #e2e8f0',
+            backgroundColor: isDark ? '#0c0a09' : '#ffffff',
+            borderBottom: isDark ? '1px solid #44403c' : '1px solid #e7e5e4',
             boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
             height: '56px',
             display: 'flex',
@@ -143,7 +143,7 @@ const Header = ({ activeSection, setActiveSection }) => {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', height: '100%', width: '100%' }}>
-            <h1 style={{ fontSize: '18px', fontWeight: 'bold', color: isDark ? '#ffffff' : '#0f172a' }}>
+            <h1 style={{ fontSize: '18px', fontWeight: 'bold', color: isDark ? '#ffffff' : '#0c0a09' }}>
               Dumiya
             </h1>
             <ThemeToggle mobile />
@@ -158,8 +158,8 @@ const Header = ({ activeSection, setActiveSection }) => {
             left: 0,
             right: 0,
             zIndex: 9999,
-            backgroundColor: isDark ? '#0f172a' : '#ffffff',
-            borderTop: isDark ? '1px solid #334155' : '1px solid #e2e8f0',
+            backgroundColor: isDark ? '#0c0a09' : '#ffffff',
+            borderTop: isDark ? '1px solid #44403c' : '1px solid #e7e5e4',
             boxShadow: '0 -2px 10px rgba(0,0,0,0.1)',
             height: '64px',
             paddingBottom: 'env(safe-area-inset-bottom, 0px)'
@@ -191,7 +191,7 @@ const Header = ({ activeSection, setActiveSection }) => {
                   cursor: 'pointer',
                   color: activeSection === item.id 
                     ? (isDark ? '#f87171' : '#dc2626')
-                    : (isDark ? '#94a3b8' : '#64748b'),
+                    : (isDark ? '#a8a29e' : '#78716c'),
                   transition: 'color 0.2s'
                 }}
               >

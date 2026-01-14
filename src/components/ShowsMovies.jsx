@@ -43,7 +43,7 @@ const ShowsMovies = ({ setActiveSection }) => {
               SHOWS
             </h3>
             <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
-              <div className="min-w-[220px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-cyan-200 dark:border-ff-cyan-700 rounded-xl p-3 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="min-w-[220px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-cyan-300 dark:border-ff-cyan-700 rounded-xl p-3 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="flex items-center gap-3">
                   <div 
                     className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
@@ -57,7 +57,7 @@ const ShowsMovies = ({ setActiveSection }) => {
                 </div>
               </div>
 
-              <div className="min-w-[220px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-blue-200 dark:border-ff-blue-700 rounded-xl p-3 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="min-w-[220px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-blue-300 dark:border-ff-blue-700 rounded-xl p-3 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="flex items-center gap-3">
                   <div 
                     className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
@@ -71,7 +71,7 @@ const ShowsMovies = ({ setActiveSection }) => {
                 </div>
               </div>
 
-              <div className="min-w-[220px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-purple-200 dark:border-ff-purple-700 rounded-xl p-3 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="min-w-[220px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-purple-300 dark:border-ff-purple-700 rounded-xl p-3 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="flex items-center gap-3">
                   <div 
                     className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
@@ -93,7 +93,7 @@ const ShowsMovies = ({ setActiveSection }) => {
               MOVIES
             </h3>
             <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
-              <div className="min-w-[220px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-pink-200 dark:border-ff-pink-700 rounded-xl p-3 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="min-w-[220px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-pink-300 dark:border-ff-pink-700 rounded-xl p-3 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="flex items-center gap-3">
                   <div 
                     className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
@@ -107,7 +107,7 @@ const ShowsMovies = ({ setActiveSection }) => {
                 </div>
               </div>
 
-              <div className="min-w-[220px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-blue-200 dark:border-ff-blue-700 rounded-xl p-3 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="min-w-[220px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-blue-300 dark:border-ff-blue-700 rounded-xl p-3 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="flex items-center gap-3">
                   <div 
                     className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
@@ -121,7 +121,7 @@ const ShowsMovies = ({ setActiveSection }) => {
                 </div>
               </div>
 
-              <div className="min-w-[220px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-green-200 dark:border-ff-green-700 rounded-xl p-3 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="min-w-[220px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-green-300 dark:border-ff-green-700 rounded-xl p-3 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="flex items-center gap-3">
                   <div 
                     className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
@@ -142,7 +142,7 @@ const ShowsMovies = ({ setActiveSection }) => {
             <h3 className="text-2xl lg:text-2xl font-bold text-ff-gold-700 dark:text-ff-gold-300 font-sixtyfour">
               GENRES
             </h3>
-            <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-gold-200 dark:border-ff-gold-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
+            <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-gold-200 dark:border-ff-gold-700 rounded-xl p-4 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
               <div className="flex flex-wrap gap-2">
                 <span className="px-2 py-1 bg-ff-red-100 dark:bg-ff-red-900/30 text-ff-red-700 dark:text-ff-red-300 rounded-full text-xs font-mono">Anime</span>
                 <span className="px-2 py-1 bg-ff-pink-100 dark:bg-ff-pink-900/30 text-ff-pink-700 dark:text-ff-pink-300 rounded-full text-xs font-mono">Sci-Fi</span>
