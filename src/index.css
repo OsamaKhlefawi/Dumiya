@@ -394,11 +394,6 @@ html {
   outline-offset: 2px;
 }
 
-/* ===== THEME TRANSITIONS ===== */
-* {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-
 /* ===== DARK MODE STYLES ===== */
 .dark {
   color-scheme: dark;
@@ -985,5 +980,33 @@ div[data-theme="light"] {
   .theme-transition * {
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Slow pulse animation for showcase */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Scanline animation for terminal theme */
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-scan {
+  animation: scan 8s linear infinite;
 }
 

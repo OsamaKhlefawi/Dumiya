@@ -21,9 +21,7 @@ const About = ({ setActiveSection }) => {
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-1/4 left-1/4 w-10 h-10 border border-ff-red-200 opacity-20 rotate-45"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-12 h-12 border border-ff-pink-200 opacity-20 -rotate-45"></div>
+        {/* Decorative elements - removed */}
       </div>
 
       {/* Subtle background overlay */}
@@ -31,128 +29,136 @@ const About = ({ setActiveSection }) => {
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold relative z-10 leading-tight font-sixtyfour mb-6">
             <span className="title-light dark:title-dark">
               ABOUT ME
             </span>
           </h2>
-          <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-ff-red-400 to-ff-pink-400 mx-auto mb-6 sm:mb-8"></div>
-          <p className="description-text description-text-lg text-ff-slate leading-relaxed max-w-2xl mx-auto text-lg sm:text-xl px-4">
-            <span className="text-ff-red-500 dark:text-ff-red-400 text-lg opacity-80 font-mono">[</span>
-              A passionate gamer and digital artist who believes in the power of creativity and strategic thinking.
-            <span className="text-ff-pink-500 dark:text-ff-pink-400 text-lg opacity-80 font-mono">]</span>
-          </p>
+          <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-ff-red-400 to-ff-pink-400 mx-auto"></div>
         </div>
 
-        {/* Content Grid - Mobile Optimized */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {/* Skills Section */}
-          <div className="space-y-6">
-            <h3 className="text-xl sm:text-2xl font-bold text-ff-red-600 dark:text-ff-red-400 font-sixtyfour text-center">
-              SKILLS & EXPERTISE
-            </h3>
-            
-            {/* Skill Cards */}
-            <div className="space-y-3 sm:space-y-4">
-              {skills.map((skill, index) => (
-                <div key={index} className="card card-padding card-border card-border-red card-hover">
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-bold text-ff-slate-800 dark:text-ff-slate-200 text-sm sm:text-base">{skill.name}</h4>
-                    <span className="text-xs sm:text-sm text-ff-red-600 dark:text-ff-red-400 font-mono">{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-ff-slate-200 dark:bg-ff-slate-700 h-2 rounded-full overflow-hidden">
-                    <div 
-                      className={`h-2 bg-gradient-to-r ${skill.color} transition-all duration-1000 ease-out rounded-full`}
-                      style={{ width: `${skill.level}%` }}
-                    ></div>
-                  </div>
-                </div>
-              ))}
+        {/* Intro Box - Horizontal */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-white via-ff-slate-50 to-ff-red-50 dark:from-ff-slate-800 dark:via-ff-slate-800 dark:to-ff-slate-900 border-4 border-ff-red-300 dark:border-ff-red-700 rounded-2xl p-6 sm:p-8 mb-12 sm:mb-16 shadow-lg hover:shadow-xl transition-all duration-300">
+          {/* Decorative glow */}
+          <div className="absolute -top-20 -right-20 w-40 h-40 bg-ff-red-500/10 dark:bg-ff-red-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-ff-pink-500/10 dark:bg-ff-pink-500/5 rounded-full blur-3xl"></div>
+
+          <div className="relative z-10">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-ff-red-500 to-ff-pink-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                <span className="material-icons text-white text-2xl sm:text-3xl">person</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-ff-red-700 dark:text-ff-red-300 font-sixtyfour">
+                WHO I AM
+              </h3>
             </div>
+            <p className="text-ff-slate-700 dark:text-ff-slate-300 leading-relaxed text-base sm:text-lg">
+              [Placeholder: Write a brief introduction about yourself - who you are, what you do, and what drives you. Talk about your passion for art, gaming, and software development. Make it personal and engaging.]
+            </p>
           </div>
+        </div>
 
-          {/* Journey Section */}
-          <div className="space-y-6">
-            <h3 className="text-xl sm:text-2xl font-bold text-ff-pink-600 dark:text-ff-pink-400 font-sixtyfour text-center">
-              MY JOURNEY
-            </h3>
-            
-            {/* Journey Cards */}
-            <div className="space-y-3 sm:space-y-4">
-              <div className="card card-padding card-border card-border-pink card-hover">
-                <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-ff-pink-500 to-ff-pink-600 rounded-lg flex items-center justify-center">
-                    <span className="material-icons text-white text-lg sm:text-xl">sports_esports</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-ff-slate-800 dark:text-ff-slate-200 text-sm sm:text-base">Gaming Journey</h4>
-                    <p className="text-xs sm:text-sm text-ff-slate-600 dark:text-ff-slate-400">5+ Years Experience</p>
-                  </div>
+        {/* Detailed Sections - Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+          {/* Art Section */}
+          <div className="relative overflow-hidden bg-gradient-to-br from-white via-ff-purple-50 to-ff-pink-50 dark:from-ff-slate-800 dark:via-ff-slate-850 dark:to-ff-purple-900/20 border-3 border-ff-purple-300 dark:border-ff-purple-700 rounded-xl p-5 sm:p-6 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+            {/* Decorative glow */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-ff-purple-500/10 dark:bg-ff-purple-500/5 rounded-full blur-2xl"></div>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-ff-purple-500 to-ff-pink-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <span className="material-icons text-white text-xl sm:text-2xl">palette</span>
                 </div>
-                <p className="mt-3 text-xs sm:text-sm text-ff-slate-600 dark:text-ff-slate-400 leading-relaxed">
-                  From pixelated adventures to modern masterpieces, gaming has been my constant companion.
-                </p>
+                <h3 className="text-xl sm:text-2xl font-bold text-ff-purple-700 dark:text-ff-purple-300 font-sixtyfour">
+                  ART
+                </h3>
               </div>
-
-              <div className="card card-padding card-border card-border-purple card-hover">
-                <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-ff-purple-500 to-ff-purple-600 rounded-lg flex items-center justify-center">
-                    <span className="material-icons text-white text-lg sm:text-xl">palette</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-ff-slate-800 dark:text-ff-slate-200 text-sm sm:text-base">Artistic Path</h4>
-                    <p className="text-xs sm:text-sm text-ff-slate-600 dark:text-ff-slate-400">3+ Years Experience</p>
-                  </div>
+              <p className="text-ff-slate-700 dark:text-ff-slate-300 leading-relaxed text-sm sm:text-base mb-4">
+                [Placeholder: Describe your art journey - what kind of art you create (digital character design, illustration, etc.), your artistic style, favorite subjects to draw, tools and software you use, and what inspires your creativity.]
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-ff-slate-700 dark:text-ff-slate-300">
+                  <span className="material-icons text-ff-purple-600 dark:text-ff-purple-400 text-sm">check_circle</span>
+                  <span>Digital Character Design</span>
                 </div>
-                <p className="mt-3 text-xs sm:text-sm text-ff-slate-600 dark:text-ff-slate-400 leading-relaxed">
-                  Digital art is my canvas for expressing the worlds I imagine and bringing ideas to life.
-                </p>
-              </div>
-
-              <div className="card card-padding card-border card-border-gold card-hover">
-                <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-ff-gold-500 to-ff-gold-600 rounded-lg flex items-center justify-center">
-                    <span className="material-icons text-white text-lg sm:text-xl">auto_awesome</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-ff-slate-800 dark:text-ff-slate-200 text-sm sm:text-base">What Drives Me</h4>
-                    <p className="text-xs sm:text-sm text-ff-slate-600 dark:text-ff-slate-400">Passion & Creativity</p>
-                  </div>
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-ff-slate-700 dark:text-ff-slate-300">
+                  <span className="material-icons text-ff-purple-600 dark:text-ff-purple-400 text-sm">check_circle</span>
+                  <span>Illustration</span>
                 </div>
-                <p className="mt-3 text-xs sm:text-sm text-ff-slate-600 dark:text-ff-slate-400 leading-relaxed">
-                  Constantly pushing boundaries and exploring new challenges in gaming and art.
-                </p>
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-ff-slate-700 dark:text-ff-slate-300">
+                  <span className="material-icons text-ff-purple-600 dark:text-ff-purple-400 text-sm">check_circle</span>
+                  <span>[Add your specialty]</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Stats & Achievements */}
-          <div className="space-y-6">
-            <h3 className="text-xl sm:text-2xl font-bold text-ff-gold-600 dark:text-ff-gold-400 font-sixtyfour text-center">
-              ACHIEVEMENTS
-            </h3>
-            
-            {/* Stats Cards */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="card card-padding-sm card-border card-border-red card-hover text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-ff-red-600 dark:text-ff-red-400 mb-1 sm:mb-2">5+</div>
-                <div className="text-xs sm:text-sm text-ff-slate-600 dark:text-ff-slate-400">Years Gaming</div>
-              </div>
+          {/* Gaming Section */}
+          <div className="relative overflow-hidden bg-gradient-to-br from-white via-ff-orange-50 to-ff-red-50 dark:from-ff-slate-800 dark:via-ff-slate-850 dark:to-ff-orange-900/20 border-3 border-ff-orange-300 dark:border-ff-orange-700 rounded-xl p-5 sm:p-6 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+            {/* Decorative glow */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-ff-orange-500/10 dark:bg-ff-orange-500/5 rounded-full blur-2xl"></div>
 
-              <div className="card card-padding-sm card-border card-border-purple card-hover text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-ff-purple-600 dark:text-ff-purple-400 mb-1 sm:mb-2">3+</div>
-                <div className="text-xs sm:text-sm text-ff-slate-600 dark:text-ff-slate-400">Years Art</div>
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-ff-orange-500 to-ff-red-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <span className="material-icons text-white text-xl sm:text-2xl">sports_esports</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-ff-orange-700 dark:text-ff-orange-300 font-sixtyfour">
+                  GAMING
+                </h3>
               </div>
-
-              <div className="card card-padding-sm card-border card-border-blue card-hover text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-ff-blue-600 dark:text-ff-blue-400 mb-1 sm:mb-2">20+</div>
-                <div className="text-xs sm:text-sm text-ff-slate-600 dark:text-ff-slate-400">Games Mastered</div>
+              <p className="text-ff-slate-700 dark:text-ff-slate-300 leading-relaxed text-sm sm:text-base mb-4">
+                [Placeholder: Share your gaming passion - favorite games and genres, what you love about gaming, memorable gaming experiences, streaming or content creation, and how gaming influences your other interests.]
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-ff-slate-700 dark:text-ff-slate-300">
+                  <span className="material-icons text-ff-orange-600 dark:text-ff-orange-400 text-sm">check_circle</span>
+                  <span>[Favorite game/genre]</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-ff-slate-700 dark:text-ff-slate-300">
+                  <span className="material-icons text-ff-orange-600 dark:text-ff-orange-400 text-sm">check_circle</span>
+                  <span>[Gaming platform]</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-ff-slate-700 dark:text-ff-slate-300">
+                  <span className="material-icons text-ff-orange-600 dark:text-ff-orange-400 text-sm">check_circle</span>
+                  <span>[Gaming interest]</span>
+                </div>
               </div>
+            </div>
+          </div>
 
-              <div className="card card-padding-sm card-border card-border-green card-hover text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-ff-green-600 dark:text-ff-green-400 mb-1 sm:mb-2">100+</div>
-                <div className="text-xs sm:text-sm text-ff-slate-600 dark:text-ff-slate-400">Artworks Created</div>
+          {/* Coding Section */}
+          <div className="relative overflow-hidden bg-gradient-to-br from-white via-ff-blue-50 to-cyan-50 dark:from-ff-slate-800 dark:via-ff-slate-850 dark:to-ff-blue-900/20 border-3 border-ff-blue-300 dark:border-ff-blue-700 rounded-xl p-5 sm:p-6 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+            {/* Decorative glow */}
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-ff-blue-500/10 dark:bg-ff-blue-500/5 rounded-full blur-2xl"></div>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-ff-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
+                  <span className="material-icons text-white text-xl sm:text-2xl">code</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-ff-blue-700 dark:text-ff-blue-300 font-sixtyfour">
+                  CODING
+                </h3>
+              </div>
+              <p className="text-ff-slate-700 dark:text-ff-slate-300 leading-relaxed text-sm sm:text-base mb-4">
+                [Placeholder: Explain your coding journey - what got you into programming, languages and frameworks you work with, types of projects you build, areas of interest (web dev, game dev, etc.), and how you combine coding with your creative side.]
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-ff-slate-700 dark:text-ff-slate-300">
+                  <span className="material-icons text-ff-blue-600 dark:text-ff-blue-400 text-sm">check_circle</span>
+                  <span>[Programming language]</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-ff-slate-700 dark:text-ff-slate-300">
+                  <span className="material-icons text-ff-blue-600 dark:text-ff-blue-400 text-sm">check_circle</span>
+                  <span>[Framework/tool]</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-ff-slate-700 dark:text-ff-slate-300">
+                  <span className="material-icons text-ff-blue-600 dark:text-ff-blue-400 text-sm">check_circle</span>
+                  <span>[Area of focus]</span>
+                </div>
               </div>
             </div>
           </div>

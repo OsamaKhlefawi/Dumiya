@@ -8,6 +8,7 @@ const Header = ({ activeSection, setActiveSection }) => {
   const [hoveredItem, setHoveredItem] = useState(null)
   const { isDark } = useTheme()
   const mobileMenuRef = useRef(null)
+  const navRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
@@ -77,20 +78,24 @@ const Header = ({ activeSection, setActiveSection }) => {
             {navItems.map((item) => (
               <div key={item.id} className="group relative">
                 {/* Individual book spine for each nav item */}
-                <div 
+                <div
                   className={`w-16 h-16 shadow-lg transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] rounded-r-lg ${
-                    activeSection === item.id 
-                      ? 'shadow-xl shadow-rose-300/50 dark:shadow-slate-400/40' 
-                      : 'group-hover:bg-gray-300 dark:group-hover:bg-slate-700'
+                    activeSection === item.id
+                      ? 'shadow-xl shadow-rose-300/50 dark:shadow-slate-400/40'
+                      : ''
                   }`}
-                  style={{ backgroundColor: 'rgb(248 250 252)' }}
+                  style={{
+                    backgroundColor: activeSection === item.id
+                      ? (isDark ? 'rgb(51 65 85)' : 'rgb(254 226 226)')
+                      : (isDark ? 'rgb(30 41 59)' : 'rgb(248 250 252)')
+                  }}
                 ></div>
                 
                 {/* Page that peeks out */}
                 <button
-                  className={`nav-button absolute left-0 top-0 w-16 h-16 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer rounded-md focus:outline-none ${
-                    activeSection === item.id 
-                      ? 'scale-110 shadow-lg ring-2 ring-rose-200 dark:ring-slate-400' 
+                  className={`nav-button absolute left-0 top-0 w-16 h-16 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] cursor-pointer rounded-r-lg focus:outline-none ${
+                    activeSection === item.id
+                      ? 'scale-110 shadow-lg ring-2 ring-rose-200 dark:ring-slate-400'
                       : 'hover:scale-125 hover:shadow-xl hover:shadow-gray-200/50 dark:hover:shadow-slate-400/30'
                   }`}
                   style={{
@@ -113,9 +118,9 @@ const Header = ({ activeSection, setActiveSection }) => {
                       <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-gradient-to-r from-rose-500 to-pink-500 dark:from-rose-400 dark:to-pink-400 rounded-full shadow-lg transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
                       <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 bg-gradient-to-r from-rose-500 to-pink-500 dark:from-rose-400 dark:to-pink-400 rounded-full animate-ping opacity-60 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
                                               {/* Enhanced glow effect */}
-                        <div className="absolute inset-0 rounded-md bg-gradient-to-r from-rose-500/10 to-pink-500/10 dark:from-rose-400/10 dark:to-pink-400/10 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
+                        <div className="absolute inset-0 rounded-r-lg bg-gradient-to-r from-rose-500/10 to-pink-500/10 dark:from-rose-400/10 dark:to-pink-400/10 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
                         {/* Dark mode glow effect */}
-                        <div className="absolute inset-0 rounded-md dark:bg-gradient-to-r dark:from-rose-400/5 dark:to-pink-400/5 dark:shadow-[0_0_20px_rgba(244,63,94,0.3)] transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
+                        <div className="absolute inset-0 rounded-r-lg dark:bg-gradient-to-r dark:from-rose-400/5 dark:to-pink-400/5 dark:shadow-[0_0_20px_rgba(244,63,94,0.3)] transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"></div>
                     </>
                   )}
                   <div className="flex items-center justify-center h-full">
@@ -151,7 +156,7 @@ const Header = ({ activeSection, setActiveSection }) => {
                     </div>
                   </div>
                   {/* Tooltip arrow */}
-                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1 w-2 h-2 bg-white dark:bg-slate-800 border-l border-b border-slate-200 dark:border-slate-600 rotate-45"></div>
+                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1 w-2 h-2 bg-white/95 dark:bg-slate-800/95 rotate-45"></div>
                 </div>
               </div>
             ))}

@@ -14,8 +14,6 @@ const Footer = lazy(() => import('./components/Footer'))
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
-  
-
 
   return (
     <ThemeProvider>
@@ -46,47 +44,83 @@ function App() {
   )
 }
 
-// Background elements component for better organization - memoized for performance
-const BackgroundElements = React.memo(function BackgroundElements() {
+// Background elements component for better organization
+const BackgroundElements = function BackgroundElements() {
+  const [mousePos, setMousePos] = React.useState({ x: 50, y: 50 })
+
+  React.useEffect(() => {
+    const handleMouseMove = (e) => {
+      const x = (e.clientX / window.innerWidth) * 100
+      const y = (e.clientY / window.innerHeight) * 100
+      setMousePos({ x, y })
+    }
+
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
   return (
     <div className="fixed inset-0 pointer-events-none">
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-ff-slate-50 via-ff-red-50 to-ff-pink-100 dark:from-ff-slate-900 dark:via-ff-red-900 dark:to-ff-pink-900"></div>
+
+      {/* Mouse-following gradient effect */}
+      <div
+        className="absolute inset-0 transition-opacity duration-500"
+        style={{
+          background: `radial-gradient(400px circle at ${mousePos.x}% ${mousePos.y}%, rgba(239, 68, 68, 0.06), rgba(236, 72, 153, 0.04), transparent 60%)`,
+          opacity: 0.6
+        }}
+      ></div>
+      <div
+        className="absolute inset-0 transition-opacity duration-500 dark:opacity-0 opacity-100"
+        style={{
+          background: `radial-gradient(300px circle at ${mousePos.x}% ${mousePos.y}%, rgba(254, 226, 226, 0.3), rgba(251, 207, 232, 0.15), transparent 60%)`
+        }}
+      ></div>
+      <div
+        className="absolute inset-0 transition-opacity duration-500 opacity-0 dark:opacity-100"
+        style={{
+          background: `radial-gradient(300px circle at ${mousePos.x}% ${mousePos.y}%, rgba(239, 68, 68, 0.1), rgba(236, 72, 153, 0.06), transparent 60%)`
+        }}
+      ></div>
       
-      {/* Subtle geometric patterns */}
-      <div className="absolute inset-0 opacity-5 dark:opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_25%_25%,_rgba(239,68,68,0.1)_0%,_transparent_50%)]"></div>
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_75%_75%,_rgba(236,72,153,0.1)_0%,_transparent_50%)]"></div>
-        <div className="absolute bottom-0 left-0 w-full h-full bg-[radial-gradient(circle_at_25%_75%,_rgba(245,158,11,0.1)_0%,_transparent_50%)]"></div>
-      </div>
-      
-      {/* Enhanced grid design */}
+      {/* Subtle vignette effect */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/5 dark:to-black/10"></div>
+
+      {/* Enhanced blueprint grid design */}
       <div className="absolute inset-0">
-        {/* Main grid */}
-        <div className="absolute inset-0 opacity-10 dark:opacity-15">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(239,68,68,0.4)_1px,transparent_1px),linear-gradient(90deg,rgba(239,68,68,0.4)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        {/* Fine detail grid */}
+        <div className="absolute inset-0 opacity-[0.15] dark:opacity-[0.2]">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(239,68,68,0.3)_0.5px,transparent_0.5px),linear-gradient(90deg,rgba(239,68,68,0.3)_0.5px,transparent_0.5px)] bg-[size:20px_20px]"></div>
         </div>
-        
-        {/* Secondary grid */}
-        <div className="absolute inset-0 opacity-8 dark:opacity-12">
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(236,72,153,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(236,72,153,0.3)_1px,transparent_1px)] bg-[size:120px_120px]"></div>
+
+        {/* Main grid with stronger lines */}
+        <div className="absolute inset-0 opacity-[0.12] dark:opacity-[0.18]">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(239,68,68,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(239,68,68,0.5)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
         </div>
-        
-        {/* Diagonal grid */}
-        <div className="absolute inset-0 opacity-6 dark:opacity-10">
-          <div className="absolute inset-0 bg-[linear-gradient(45deg,rgba(245,158,11,0.25)_1px,transparent_1px),linear-gradient(-45deg,rgba(245,158,11,0.25)_1px,transparent_1px)] bg-[size:80px_80px]"></div>
+
+        {/* Accent grid */}
+        <div className="absolute inset-0 opacity-[0.08] dark:opacity-[0.15]">
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(236,72,153,0.4)_1.5px,transparent_1.5px),linear-gradient(90deg,rgba(236,72,153,0.4)_1.5px,transparent_1.5px)] bg-[size:200px_200px]"></div>
         </div>
+
+        {/* Blueprint corner markers */}
+        <div className="absolute top-8 left-8 w-6 h-6 border-t-2 border-l-2 border-rose-400/20 dark:border-rose-400/30"></div>
+        <div className="absolute top-8 right-8 w-6 h-6 border-t-2 border-r-2 border-rose-400/20 dark:border-rose-400/30"></div>
+        <div className="absolute bottom-8 left-8 w-6 h-6 border-b-2 border-l-2 border-rose-400/20 dark:border-rose-400/30"></div>
+        <div className="absolute bottom-8 right-8 w-6 h-6 border-b-2 border-r-2 border-rose-400/20 dark:border-rose-400/30"></div>
       </div>
       
-      {/* Magic swirls */}
-      <div className="absolute inset-0 opacity-10 dark:opacity-15">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-br from-ff-red-200 to-ff-pink-200 dark:from-ff-red-700 dark:to-ff-pink-700 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-tl from-ff-gold-200 to-ff-red-200 dark:from-ff-gold-700 dark:to-ff-red-700 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
+      {/* Subtle ambient glow */}
+      <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.08]">
+        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-to-br from-rose-300 to-pink-300 dark:from-rose-600 dark:to-pink-600 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-gradient-to-tl from-pink-300 to-rose-300 dark:from-pink-600 dark:to-rose-600 rounded-full blur-[120px]"></div>
       </div>
-      
+
     </div>
   )
-})
+}
 
 // Loading spinner component for lazy loading
 function LoadingSpinner() {

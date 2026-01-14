@@ -28,24 +28,28 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gradient-to-r from-ff-slate-800 via-ff-red-800 to-ff-purple-800 dark:from-ff-slate-900 dark:via-ff-red-900 dark:to-ff-purple-900 text-ff-slate-800 dark:text-white font-body">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <footer className="relative overflow-hidden bg-gradient-to-r from-ff-slate-100 via-ff-red-100 to-ff-purple-100 dark:from-ff-slate-900 dark:via-ff-red-900/50 dark:to-ff-purple-900/50 text-ff-slate-800 dark:text-white font-body border-t-2 border-ff-red-300 dark:border-ff-red-700">
+      {/* Decorative glow */}
+      <div className="absolute top-0 left-10 w-64 h-64 bg-ff-red-500/10 dark:bg-ff-red-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-10 w-64 h-64 bg-ff-purple-500/10 dark:bg-ff-purple-500/5 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Brand Section */}
           <div className="sm:col-span-2 lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-ff-red-400 to-ff-purple-500 flex items-center justify-center border border-ff-red-300 dark:border-ff-red-400 rounded-lg">
+              <div className="w-10 h-10 bg-gradient-to-br from-ff-red-500 to-ff-purple-600 flex items-center justify-center border-2 border-ff-red-300 dark:border-ff-red-600 rounded-lg shadow-lg">
                 <span className="text-xl">🌸</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-lg sm:text-xl font-display font-bold bg-gradient-to-r from-ff-red-400 to-ff-purple-400 bg-clip-text text-transparent">
+                <span className="text-lg sm:text-xl font-display font-bold bg-gradient-to-r from-ff-red-600 to-ff-purple-600 dark:from-ff-red-400 dark:to-ff-purple-400 bg-clip-text text-transparent">
                   GamerArtist
                 </span>
-                <span className="text-xs text-ff-slate-600 dark:text-ff-slate-400 font-mono">v1.0.0</span>
+                <span className="text-xs text-ff-slate-700 dark:text-ff-slate-400 font-mono">v1.0.0</span>
               </div>
             </div>
-            <p className="text-ff-slate-700 dark:text-ff-slate-300 mb-4 max-w-md font-body text-sm sm:text-base">
-              A passionate gamer and digital artist creating immersive experiences through creativity, 
+            <p className="text-ff-slate-800 dark:text-ff-slate-300 mb-4 max-w-md font-body text-sm sm:text-base">
+              A passionate gamer and digital artist creating immersive experiences through creativity,
               strategy, and artistic vision. Join me on this journey of pixels and imagination.
             </p>
             <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -53,7 +57,7 @@ const Footer = () => {
                 <a
                   key={index}
                   href={social.url}
-                  className="w-8 h-8 sm:w-10 sm:h-10 bg-white/10 dark:bg-white/5 backdrop-blur-sm border border-white/20 dark:border-white/10 flex items-center justify-center text-sm sm:text-base hover:bg-ff-red-500 hover:border-ff-red-400 transition-all duration-200 group rounded-lg"
+                  className="w-8 h-8 sm:w-10 sm:h-10 bg-ff-slate-200/50 dark:bg-ff-slate-700/30 backdrop-blur-sm border-2 border-ff-slate-300 dark:border-ff-slate-600 flex items-center justify-center text-sm sm:text-base hover:bg-gradient-to-br hover:from-ff-red-500 hover:to-ff-pink-500 hover:border-ff-red-400 dark:hover:border-ff-red-500 hover:scale-110 transition-all duration-200 group rounded-lg shadow-lg"
                   title={social.name}
                 >
                   <span className="group-hover:scale-110 transition-transform duration-200">
@@ -66,13 +70,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-base font-display font-bold text-ff-slate-800 dark:text-white mb-3">Quick Links</h3>
+            <h3 className="text-base font-display font-bold text-ff-slate-800 dark:text-ff-slate-200 mb-3">Quick Links</h3>
             <ul className="space-y-1.5">
               {footerLinks.map((link, index) => (
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection(link.href.substring(1))}
-                                         className="text-ff-slate-600 dark:text-ff-slate-300 hover:text-ff-red-600 dark:hover:text-ff-red-300 transition-colors duration-200 font-body text-sm"
+                    className="text-ff-slate-700 dark:text-ff-slate-300 hover:text-ff-red-600 dark:hover:text-ff-red-400 transition-all duration-200 font-body text-sm hover:translate-x-1 inline-block transform"
                   >
                     {link.name}
                   </button>
@@ -83,8 +87,8 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-base font-display font-bold text-ff-slate-800 dark:text-white mb-3">Contact</h3>
-            <div className="space-y-1.5 text-xs text-ff-slate-600 dark:text-ff-slate-300 font-body">
+            <h3 className="text-base font-display font-bold text-ff-slate-800 dark:text-ff-slate-200 mb-3">Contact</h3>
+            <div className="space-y-1.5 text-xs text-ff-slate-700 dark:text-ff-slate-300 font-body">
               <p>📧 gamerartist@example.com</p>
               <p>📱 +1 (555) 123-4567</p>
               <p>🌐 www.gamerartist.com</p>
@@ -94,23 +98,23 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-ff-slate-300 dark:border-white/10 mt-6 sm:mt-8 pt-4 sm:pt-6">
+        <div className="border-t-2 border-ff-red-300 dark:border-ff-red-700 mt-6 sm:mt-8 pt-4 sm:pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
-            <div className="text-ff-slate-600 dark:text-ff-slate-400 text-xs font-body text-center sm:text-left">
-              © {currentYear} GamerArtist. All rights reserved. 
+            <div className="text-ff-slate-700 dark:text-ff-slate-300 text-xs font-body text-center sm:text-left">
+              © {currentYear} GamerArtist. All rights reserved.
               <span className="block sm:inline sm:ml-2 text-xs font-mono">Built with React & Tailwind CSS</span>
             </div>
-            <div className="flex items-center space-x-3 sm:space-x-4 text-xs text-ff-slate-600 dark:text-ff-slate-400 font-body">
-              <span>Privacy Policy</span>
-              <span>Terms of Service</span>
-              <span className="text-ff-red-600 dark:text-ff-red-300 font-mono">v1.0.0</span>
+            <div className="flex items-center space-x-3 sm:space-x-4 text-xs text-ff-slate-700 dark:text-ff-slate-300 font-body">
+              <span className="hover:text-ff-red-600 dark:hover:text-ff-red-400 transition-colors cursor-pointer">Privacy Policy</span>
+              <span className="hover:text-ff-red-600 dark:hover:text-ff-red-400 transition-colors cursor-pointer">Terms of Service</span>
+              <span className="text-ff-red-700 dark:text-ff-red-300 font-mono font-bold">v1.0.0</span>
             </div>
           </div>
         </div>
 
         {/* Decorative element */}
         <div className="text-center mt-6">
-          <div className="inline-flex items-center space-x-2 text-ff-slate-600 dark:text-ff-slate-400 text-xs font-mono">
+          <div className="inline-flex items-center space-x-2 text-ff-slate-700 dark:text-ff-slate-300 text-xs font-mono">
             <span>🌸</span>
             <span>Welcome to the world of gaming and art</span>
             <span>🌸</span>

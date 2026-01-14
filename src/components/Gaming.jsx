@@ -46,13 +46,15 @@ const Gaming = ({ setActiveSection }) => {
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-1/4 left-1/4 w-10 h-10 border border-ff-red-200 opacity-20 rotate-45"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-12 h-12 border border-ff-pink-200 opacity-20 -rotate-45"></div>
+        {/* Decorative elements - removed */}
       </div>
 
-      {/* Subtle background overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-ff-red-50/10 dark:to-ff-red-900/10"></div>
+      {/* Subtle background overlay with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-ff-orange-50 to-ff-red-50 dark:from-ff-slate-800 dark:via-ff-slate-850 dark:to-ff-orange-900/20"></div>
+
+      {/* Decorative glows */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-ff-orange-500/10 dark:bg-ff-orange-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-64 h-64 bg-ff-red-500/10 dark:bg-ff-red-500/5 rounded-full blur-3xl"></div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -62,11 +64,11 @@ const Gaming = ({ setActiveSection }) => {
               GAMING PROFILE
             </span>
           </h2>
-          <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-ff-red-400 to-ff-pink-400 mx-auto mb-6 sm:mb-8"></div>
-          <p className="description-text description-text-lg text-ff-slate leading-relaxed max-w-2xl mx-auto text-lg sm:text-xl px-4">
-            <span className="text-ff-red-500 dark:text-ff-red-400 text-lg opacity-80 font-mono">[</span>
+          <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-ff-orange-500 to-ff-red-500 mx-auto mb-6 sm:mb-8 shadow-lg"></div>
+          <p className="text-ff-slate-700 dark:text-ff-slate-300 leading-relaxed max-w-2xl mx-auto text-lg sm:text-xl px-4">
+            <span className="text-ff-orange-600 dark:text-ff-orange-400 text-lg opacity-80 font-mono">[</span>
               From strategic RPGs to action-packed adventures, discover my gaming journey and achievements.
-            <span className="text-ff-pink-500 dark:text-ff-pink-400 text-lg opacity-80 font-mono">]</span>
+            <span className="text-ff-red-600 dark:text-ff-red-400 text-lg opacity-80 font-mono">]</span>
           </p>
         </div>
 
@@ -74,26 +76,31 @@ const Gaming = ({ setActiveSection }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Favorite Games Section */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-ff-red-600 dark:text-ff-red-400 font-sixtyfour text-center">
+            <h3 className="text-2xl font-bold text-ff-orange-700 dark:text-ff-orange-300 font-sixtyfour text-center">
               FAVORITE GAMES
             </h3>
-            
+
             {/* Game Cards */}
             <div className="space-y-4">
               {favoriteGames.slice(0, 3).map((game, index) => (
-                <div key={index} className="card card-padding card-border card-border-red card-hover">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-ff-red-500 to-ff-red-600 rounded-lg flex items-center justify-center">
-                      <span className="material-icons text-white text-xl">sports_esports</span>
+                <div key={index} className="relative overflow-hidden bg-gradient-to-br from-white via-ff-orange-50 to-white dark:from-ff-slate-800 dark:via-ff-slate-850 dark:to-ff-orange-900/20 border-2 border-ff-orange-300 dark:border-ff-orange-700 rounded-xl p-4 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                  {/* Decorative glow */}
+                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-ff-orange-500/10 dark:bg-ff-orange-500/5 rounded-full blur-2xl"></div>
+
+                  <div className="relative z-10">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-ff-orange-500 to-ff-orange-600 rounded-lg flex items-center justify-center shadow-lg">
+                        <span className="material-icons text-white text-xl">sports_esports</span>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-ff-slate-800 dark:text-ff-slate-200">{game.name}</h4>
+                        <p className="text-sm text-ff-slate-600 dark:text-ff-slate-400">{game.genre} • {game.platform}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-ff-slate-800 dark:text-ff-slate-200">{game.name}</h4>
-                      <p className="text-sm text-ff-slate-600 dark:text-ff-slate-400">{game.genre} • {game.platform}</p>
+                    <div className="mt-3 flex justify-between text-sm">
+                      <span className="text-ff-orange-700 dark:text-ff-orange-300 font-mono font-bold">{game.hours}h played</span>
+                      <span className="text-ff-red-700 dark:text-ff-red-300 font-mono font-bold">{game.rating}/10</span>
                     </div>
-                  </div>
-                  <div className="mt-3 flex justify-between text-sm">
-                    <span className="text-ff-red-600 dark:text-ff-red-400 font-mono">{game.hours}h played</span>
-                    <span className="text-ff-pink-600 dark:text-ff-pink-400 font-mono">{game.rating}/10</span>
                   </div>
                 </div>
               ))}
@@ -102,26 +109,31 @@ const Gaming = ({ setActiveSection }) => {
 
           {/* Achievements Section */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-ff-pink-600 dark:text-ff-pink-400 font-sixtyfour text-center">
+            <h3 className="text-2xl font-bold text-ff-red-700 dark:text-ff-red-300 font-sixtyfour text-center">
               ACHIEVEMENTS
             </h3>
-            
+
             {/* Achievement Cards */}
             <div className="space-y-4">
               {achievements.slice(0, 3).map((achievement, index) => (
-                <div key={index} className="card card-padding card-border card-border-pink card-hover">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-ff-pink-500 to-ff-pink-600 rounded-lg flex items-center justify-center">
-                      <span className="material-icons text-white text-xl">emoji_events</span>
+                <div key={index} className="relative overflow-hidden bg-gradient-to-br from-white via-ff-red-50 to-white dark:from-ff-slate-800 dark:via-ff-slate-850 dark:to-ff-red-900/20 border-2 border-ff-red-300 dark:border-ff-red-700 rounded-xl p-4 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+                  {/* Decorative glow */}
+                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-ff-red-500/10 dark:bg-ff-red-500/5 rounded-full blur-2xl"></div>
+
+                  <div className="relative z-10">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-ff-red-500 to-ff-red-600 rounded-lg flex items-center justify-center shadow-lg">
+                        <span className="material-icons text-white text-xl">emoji_events</span>
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-ff-slate-800 dark:text-ff-slate-200">{achievement.title}</h4>
+                        <p className="text-sm text-ff-slate-600 dark:text-ff-slate-400">{achievement.game} • {achievement.date}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-bold text-ff-slate-800 dark:text-ff-slate-200">{achievement.title}</h4>
-                      <p className="text-sm text-ff-slate-600 dark:text-ff-slate-400">{achievement.game} • {achievement.date}</p>
-                    </div>
+                    <p className="mt-3 text-sm text-ff-slate-700 dark:text-ff-slate-300 leading-relaxed">
+                      {achievement.description}
+                    </p>
                   </div>
-                  <p className="mt-3 text-sm text-ff-slate-600 dark:text-ff-slate-400 leading-relaxed">
-                    {achievement.description}
-                  </p>
                 </div>
               ))}
             </div>
@@ -129,17 +141,22 @@ const Gaming = ({ setActiveSection }) => {
 
           {/* Gaming Stats Section */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-ff-gold-600 dark:text-ff-gold-400 font-sixtyfour text-center">
+            <h3 className="text-2xl font-bold text-ff-gold-700 dark:text-ff-gold-300 font-sixtyfour text-center">
               GAMING STATS
             </h3>
-            
+
             {/* Stats Cards */}
             <div className="space-y-4">
               {gamingStats.slice(0, 4).map((stat, index) => (
-                <div key={index} className="card card-padding card-border card-border-gold card-hover text-center">
-                  <div className="text-3xl mb-2">{stat.icon}</div>
-                  <div className="text-2xl font-bold text-ff-gold-600 dark:text-ff-gold-400 mb-1">{stat.value}</div>
-                  <div className="text-sm text-ff-slate-600 dark:text-ff-slate-400">{stat.stat}</div>
+                <div key={index} className="relative overflow-hidden bg-gradient-to-br from-white via-ff-gold-50 to-white dark:from-ff-slate-800 dark:via-ff-slate-850 dark:to-ff-gold-900/20 border-2 border-ff-gold-300 dark:border-ff-gold-700 rounded-xl p-4 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 text-center">
+                  {/* Decorative glow */}
+                  <div className="absolute -top-10 -right-10 w-32 h-32 bg-ff-gold-500/10 dark:bg-ff-gold-500/5 rounded-full blur-2xl"></div>
+
+                  <div className="relative z-10">
+                    <div className="text-3xl mb-2">{stat.icon}</div>
+                    <div className="text-2xl font-bold text-ff-gold-700 dark:text-ff-gold-300 mb-1">{stat.value}</div>
+                    <div className="text-sm text-ff-slate-700 dark:text-ff-slate-300">{stat.stat}</div>
+                  </div>
                 </div>
               ))}
             </div>
