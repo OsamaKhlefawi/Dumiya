@@ -8,8 +8,8 @@ export const ThemeToggle = ({ className = '', mobile = false }) => {
     : (isDark ? '#1e293b' : '#f8fafc')
   
   const buttonClass = mobile
-    ? "p-2 border-2 border-rose-200 dark:border-slate-400 rounded-lg focus:outline-none hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-rose-200/30 dark:hover:shadow-slate-400/30"
-    : "w-12 h-12 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease-out focus:outline-none shadow-lg ring-2 ring-rose-200 dark:ring-slate-400 hover:shadow-xl hover:shadow-rose-200/30 dark:hover:shadow-slate-400/30"
+    ? "p-2 border-2 border-ff-red-200 dark:border-ff-slate-600 rounded-lg focus:outline-none hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-ff-red-200/30 dark:hover:shadow-ff-slate-600/30"
+    : "w-12 h-12 rounded-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-all duration-300 ease-out focus:outline-none shadow-lg ring-2 ring-ff-red-200 dark:ring-ff-slate-600 hover:shadow-xl hover:shadow-ff-red-200/30 dark:hover:shadow-ff-slate-600/30"
 
   return (
     <button

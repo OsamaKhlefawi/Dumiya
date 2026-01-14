@@ -1,0 +1,47 @@
+/* Modern Mobile UI Styles */
+
+@layer components {
+  /* Modern Mobile Card */
+  .mobile-card {
+    @apply bg-white dark:bg-slate-800 rounded-2xl shadow-lg;
+    @apply border border-slate-200 dark:border-slate-700;
+    @apply transition-all duration-300;
+    @apply hover:shadow-xl hover:scale-[1.02];
+  }
+
+  /* Mobile Section */
+  .mobile-section {
+    @apply px-4 py-6 sm:px-6 sm:py-8;
+  }
+
+  /* Mobile Heading */
+  .mobile-heading {
+    @apply text-2xl sm:text-3xl font-bold mb-1;
+    @apply bg-gradient-to-r from-rose-600 to-pink-600;
+    @apply dark:from-rose-400 dark:to-pink-400;
+    @apply bg-clip-text text-transparent;
+  }
+
+  /* Mobile Subheading */
+  .mobile-subheading {
+    @apply text-sm text-slate-600 dark:text-slate-400 mb-6;
+  }
+
+  /* Safe area for mobile notch/home indicator */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  /* Hide scrollbar for horizontal scroll */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

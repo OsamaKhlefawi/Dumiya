@@ -24,68 +24,41 @@ const Hero = ({ setActiveSection }) => {
     <section
       id="home"
       ref={heroRef}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-20 font-body"
+      className="min-h-screen relative overflow-hidden pt-20 pb-8 sm:py-20 md:py-24 lg:py-0 font-body flex items-center"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Decorative elements - removed */}
       </div>
 
-      {/* Subtle background overlay with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-ff-pink-50 to-ff-red-50 dark:from-ff-slate-800 dark:via-ff-slate-850 dark:to-ff-pink-900/20"></div>
+      {/* Decorative glows - visible in both modes */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-ff-red-400/8 dark:bg-ff-red-500/10 rounded-full blur-3xl transition-colors duration-500"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-ff-pink-400/8 dark:bg-ff-pink-500/10 rounded-full blur-3xl transition-colors duration-500"></div>
 
-      {/* Decorative glows */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-ff-red-500/10 dark:bg-ff-red-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-ff-pink-500/10 dark:bg-ff-pink-500/5 rounded-full blur-3xl"></div>
-
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Responsive Layout - Mobile First, Desktop Asymmetric */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column - Main Content */}
-          <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
-            <div className="space-y-6">
-              {/* Final Fantasy title with magic glow */}
-              <div className="relative">
-                <h1
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold relative z-10 leading-tight font-sixtyfour"
-                >
-                  <span className="title-light dark:title-dark">
-                    DUMIYA'S
-                  </span>
-                </h1>
-                {/* Magic glow effect */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-ff-red-300 to-ff-pink-300 opacity-20 blur-xl animate-pulse"></div>
-                <div className="absolute -inset-2 bg-gradient-to-r from-ff-red-200 to-ff-pink-200 opacity-30 blur-md"></div>
-              </div>
-
-              <div className="relative">
-                <h2
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold relative z-10 leading-tight font-sixtyfour"
-                >
-                  <span className="title-light dark:title-dark">
-                    PORTFOLIO
-                  </span>
-                </h2>
-                {/* Magic underline with glow effect */}
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-ff-red-400 to-ff-pink-400 opacity-80"></div>
-                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-ff-red-300 to-ff-pink-300 opacity-60 animate-pulse"></div>
-              </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        {/* Mobile: Compact Centered, Desktop: Asymmetric */}
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-12 items-center">
+          {/* Mobile: Simple centered, Desktop: Left column */}
+          <div className="w-full lg:col-span-7 space-y-4 lg:space-y-8 text-center lg:text-left">
+            <div className="space-y-3 lg:space-y-6">
+              <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight font-sixtyfour">
+                <span className="title-light dark:title-dark">DUMIYA'S</span>
+              </h1>
+              <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight font-sixtyfour">
+                <span className="title-light dark:title-dark">PORTFOLIO</span>
+              </h2>
             </div>
-
-            <p className="text-ff-slate-700 dark:text-ff-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 text-lg sm:text-xl">
-              <span className="text-ff-red-600 dark:text-ff-red-400 text-lg opacity-80 font-mono">[</span>
-                Passionate about gaming and art — always exploring new worlds and new ways to create.
-              <span className="text-ff-pink-600 dark:text-ff-pink-400 text-lg opacity-80 font-mono">]</span>
+            <p className="text-sm lg:text-xl text-ff-slate-700 dark:text-ff-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <span className="text-ff-red-600 dark:text-ff-red-400 font-mono">[</span>
+              Passionate about gaming and art — always exploring new worlds and new ways to create.
+              <span className="text-ff-pink-600 dark:text-ff-pink-400 font-mono">]</span>
             </p>
           </div>
 
-          {/* Right Column - Interests Showcase */}
-          <div className="lg:col-span-5 flex items-center justify-center order-first lg:order-last">
-            <div className="relative w-full h-full min-h-[400px] sm:min-h-[500px]">
-              {/* Background glow */}
+          {/* Mobile: Hidden, Desktop: Show */}
+          <div className="hidden lg:flex lg:col-span-5 items-center justify-center">
+            <div className="relative w-full h-full min-h-[500px]">
               <div className="absolute inset-0 bg-gradient-to-r from-ff-red-500/10 to-ff-pink-500/10 dark:from-ff-red-600/20 dark:to-ff-pink-600/20 rounded-full blur-3xl"></div>
-
-              {/* Art Showcase */}
               <div className="relative w-full h-full">
                 <ArtShowcase />
               </div>
@@ -94,10 +67,10 @@ const Hero = ({ setActiveSection }) => {
         </div>
 
         {/* Animated Scroll indicator */}
-        <div className="absolute -bottom-16 sm:-bottom-18 left-1/2 transform -translate-x-1/2">
-          <div className="flex flex-col items-center space-y-2 sm:space-y-3">
+        <div className="absolute -bottom-8 sm:-bottom-12 md:-bottom-16 left-1/2 transform -translate-x-1/2">
+          <div className="flex flex-col items-center space-y-1 sm:space-y-2">
             {/* Scroll arrow */}
-            <div className="text-ff-red-600 dark:text-ff-red-300 text-2xl sm:text-3xl opacity-70 animate-bounce">
+            <div className="text-ff-red-600 dark:text-ff-red-300 text-xl sm:text-2xl md:text-3xl opacity-70 animate-bounce">
               <span className="material-icons">keyboard_arrow_down</span>
             </div>
             <div className="text-ff-red-600 dark:text-ff-red-400 text-xs font-mono opacity-60 tracking-wider">

@@ -33,12 +33,12 @@ const Footer = () => {
       <div className="absolute top-0 left-10 w-64 h-64 bg-ff-red-500/10 dark:bg-ff-red-500/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-10 w-64 h-64 bg-ff-purple-500/10 dark:bg-ff-purple-500/5 rounded-full blur-3xl"></div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
           {/* Brand Section */}
           <div className="sm:col-span-2 lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-ff-red-500 to-ff-purple-600 flex items-center justify-center border-2 border-ff-red-300 dark:border-ff-red-600 rounded-lg shadow-lg">
+              <div className="w-10 h-10 bg-gradient-to-br from-ff-red-500 to-ff-purple-600 flex items-center justify-center border-2 border-ff-red-300 dark:border-ff-red-600 rounded-lg shadow-lg shadow-ff-red-500/30 dark:shadow-ff-red-500/50">
                 <span className="text-xl">🌸</span>
               </div>
               <div className="flex flex-col">

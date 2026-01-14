@@ -1,0 +1,15 @@
+/* Fix for mobile/desktop separation */
+@media (max-width: 1023px) {
+  /* Hide desktop navigation on mobile */
+  nav.hidden.lg\:block,
+  div.hidden.lg\:block {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Hide mobile navigation on desktop */
+  div.lg\:hidden {
+    display: none !important;
+  }
+}

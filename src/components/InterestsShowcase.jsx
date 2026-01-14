@@ -30,7 +30,7 @@ export const InterestsShowcase = () => {
       name: 'NieR',
       image: '/assets/nierIcon.png',
       color: 'from-slate-500 to-gray-600',
-      bgColor: 'bg-slate-500/10',
+      bgColor: 'bg-ff-slate-500/10',
       invert: false
     },
     {
@@ -151,7 +151,7 @@ export const InterestsShowcase = () => {
         <h3 className={`text-2xl sm:text-3xl font-bold bg-gradient-to-r ${interests[activeIndex].color} bg-clip-text text-transparent transition-all duration-500 font-ui`}>
           {interests[activeIndex].name}
         </h3>
-        <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 font-mono">
+        <p className="text-sm text-ff-slate-600 dark:text-ff-slate-400 mt-2 font-mono">
           {activeIndex + 1} / {interests.length}
         </p>
       </div>
@@ -165,7 +165,7 @@ export const InterestsShowcase = () => {
             className={`transition-all duration-300 rounded-full ${
               index === activeIndex
                 ? 'w-8 h-2 bg-gradient-to-r from-rose-500 to-pink-500'
-                : 'w-2 h-2 bg-slate-300 dark:bg-slate-600 hover:bg-slate-400 dark:hover:bg-slate-500'
+                : 'w-2 h-2 bg-ff-slate-300 dark:bg-ff-slate-600 hover:bg-ff-slate-400 dark:hover:bg-ff-slate-500'
             }`}
             aria-label={`View ${interests[index].name}`}
           />
@@ -173,7 +173,7 @@ export const InterestsShowcase = () => {
       </div>
 
       {/* Hint text */}
-      <p className="text-xs text-slate-500 dark:text-slate-400 mt-4 font-mono opacity-70">
+      <p className="text-xs text-ff-slate-500 dark:text-ff-slate-400 mt-4 font-mono opacity-70">
         Hover to pause • Click dots to navigate
       </p>
     </div>

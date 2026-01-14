@@ -109,7 +109,7 @@ export const ArtShowcase = () => {
         <h3 className={`text-lg sm:text-xl font-bold bg-gradient-to-r ${artworks[activeIndex].color} bg-clip-text text-transparent transition-all duration-500`}>
           {artworks[activeIndex].title}
         </h3>
-        <p className="text-xs text-slate-600 dark:text-slate-400">
+        <p className="text-xs text-ff-slate-600 dark:text-ff-slate-400">
           {artworks[activeIndex].category}
         </p>
       </div>
