@@ -40,11 +40,13 @@ const About = ({ setActiveSection }) => {
         </div>
 
         {/* Intro Box - Mobile: Compact, Desktop: Larger */}
-        <div className="relative bg-white dark:bg-ff-slate-800 backdrop-blur-sm border-2 border-ff-red-200 dark:border-ff-red-700 rounded-xl p-4 lg:p-8 mb-6 lg:mb-16 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+        <div className="relative bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 backdrop-blur-sm border-2 border-ff-red-200 dark:border-ff-red-700 rounded-xl p-4 lg:p-8 mb-6 lg:mb-16 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
 
           <div className="relative z-10">
             <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-gradient-to-br from-ff-red-500 to-ff-pink-500 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-ff-red-500/30 dark:shadow-ff-red-500/50 ring-2 ring-ff-red-400/30 dark:ring-ff-red-400/50">
+              <div 
+                className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
+                style={{ background: 'linear-gradient(135deg, #ef4444, #ec4899)' }}>
                 <span className="material-icons text-white text-xl sm:text-2xl md:text-3xl">person</span>
               </div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-ff-red-700 dark:text-ff-red-300 font-sixtyfour">
@@ -60,9 +62,11 @@ const About = ({ setActiveSection }) => {
         {/* Detailed Sections - Stack on mobile, Grid on desktop */}
         <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {/* Art Section - Mobile: Compact Card */}
-          <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-purple-200 dark:border-ff-purple-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+          <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-purple-200 dark:border-ff-purple-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-ff-purple-500 to-ff-pink-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-ff-purple-500/30 dark:shadow-ff-purple-500/50 ring-2 ring-ff-purple-400/30 dark:ring-ff-purple-400/50">
+              <div 
+                className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
+                style={{ background: 'linear-gradient(135deg, #a855f7, #ec4899)' }}>
                 <span className="material-icons text-white">palette</span>
               </div>
               <h3 className="text-lg lg:text-2xl font-bold text-ff-purple-700 dark:text-ff-purple-300 font-sixtyfour">ART</h3>
@@ -83,9 +87,11 @@ const About = ({ setActiveSection }) => {
           </div>
 
           {/* Gaming Section - Mobile: Compact Card */}
-          <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-orange-200 dark:border-ff-orange-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+          <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-orange-200 dark:border-ff-orange-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-ff-orange-500 to-ff-red-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-ff-orange-500/30 dark:shadow-ff-orange-500/50 ring-2 ring-ff-orange-400/30 dark:ring-ff-orange-400/50">
+              <div 
+                className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
+                style={{ background: 'linear-gradient(135deg, #f97316, #ef4444)' }}>
                 <span className="material-icons text-white">sports_esports</span>
               </div>
               <h3 className="text-lg lg:text-2xl font-bold text-ff-orange-700 dark:text-ff-orange-300 font-sixtyfour">GAMING</h3>
@@ -106,9 +112,11 @@ const About = ({ setActiveSection }) => {
           </div>
 
           {/* Coding Section - Mobile: Compact Card */}
-          <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-blue-200 dark:border-ff-blue-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+          <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-blue-200 dark:border-ff-blue-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-ff-blue-500 to-ff-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-ff-blue-500/30 dark:shadow-ff-blue-500/50 ring-2 ring-ff-blue-400/30 dark:ring-ff-blue-400/50">
+              <div 
+                className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
+                style={{ background: 'linear-gradient(135deg, #3b82f6, #06b6d4)' }}>
                 <span className="material-icons text-white">code</span>
               </div>
               <h3 className="text-lg lg:text-2xl font-bold text-ff-blue-700 dark:text-ff-blue-300 font-sixtyfour">CODING</h3>

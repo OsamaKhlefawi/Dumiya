@@ -38,7 +38,9 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="sm:col-span-2 lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-ff-red-500 to-ff-purple-600 flex items-center justify-center border-2 border-ff-red-300 dark:border-ff-red-600 rounded-lg shadow-lg shadow-ff-red-500/30 dark:shadow-ff-red-500/50">
+              <div 
+                className="w-10 h-10 flex items-center justify-center border-2 border-white/20 rounded-lg shadow-lg"
+                style={{ background: 'linear-gradient(135deg, #ef4444, #9333ea)' }}>
                 <span className="text-xl">🌸</span>
               </div>
               <div className="flex flex-col">

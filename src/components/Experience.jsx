@@ -148,9 +148,11 @@ const Experience = ({ setActiveSection }) => {
             </h3>
             <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
               {workExperience.map((job, index) => (
-                <div key={index} className="min-w-[280px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-red-200 dark:border-ff-red-700 rounded-xl p-4 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                <div key={index} className="min-w-[280px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-red-200 dark:border-ff-red-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 bg-gradient-to-br from-ff-red-500 to-ff-red-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-ff-red-500/30 dark:shadow-ff-red-500/50 ring-2 ring-ff-red-400/30 dark:ring-ff-red-400/50">
+                    <div 
+                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
+                      style={{ background: 'linear-gradient(135deg, #ef4444, #dc2626)' }}>
                       <span className="material-icons text-white text-lg">work</span>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -173,9 +175,11 @@ const Experience = ({ setActiveSection }) => {
             </h3>
             <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
               {projects.slice(0, 3).map((project, index) => (
-                <div key={index} className="min-w-[280px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-pink-200 dark:border-ff-pink-700 rounded-xl p-4 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                <div key={index} className="min-w-[280px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-pink-200 dark:border-ff-pink-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 bg-gradient-to-br from-ff-pink-500 to-ff-pink-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-ff-pink-500/30 dark:shadow-ff-pink-500/50 ring-2 ring-ff-pink-400/30 dark:ring-ff-pink-400/50">
+                    <div 
+                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
+                      style={{ background: 'linear-gradient(135deg, #ec4899, #db2777)' }}>
                       <span className="material-icons text-white text-lg">rocket_launch</span>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -198,9 +202,11 @@ const Experience = ({ setActiveSection }) => {
             </h3>
             <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
               {certifications.slice(0, 2).map((cert, index) => (
-                <div key={index} className="min-w-[280px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-gold-200 dark:border-ff-gold-700 rounded-xl p-4 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                <div key={index} className="min-w-[280px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-gold-200 dark:border-ff-gold-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 bg-gradient-to-br from-ff-gold-500 to-ff-gold-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-ff-gold-500/30 dark:shadow-ff-gold-500/50 ring-2 ring-ff-gold-400/30 dark:ring-ff-gold-400/50">
+                    <div 
+                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
+                      style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)' }}>
                       <span className="material-icons text-white text-lg">emoji_events</span>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -215,11 +221,11 @@ const Experience = ({ setActiveSection }) => {
               ))}
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-blue-200 dark:border-ff-blue-700 rounded-xl p-3 text-center shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-blue-200 dark:border-ff-blue-700 rounded-xl p-3 text-center shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="text-xl font-bold text-ff-blue-700 dark:text-ff-blue-300 mb-1">3+</div>
                 <div className="text-xs text-ff-slate-700 dark:text-ff-slate-300">Years</div>
               </div>
-              <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-green-200 dark:border-ff-green-700 rounded-xl p-3 text-center shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-green-200 dark:border-ff-green-700 rounded-xl p-3 text-center shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="text-xl font-bold text-ff-green-700 dark:text-ff-green-300 mb-1">20+</div>
                 <div className="text-xs text-ff-slate-700 dark:text-ff-slate-300">Projects</div>
               </div>

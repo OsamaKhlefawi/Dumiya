@@ -92,9 +92,11 @@ const Gaming = ({ setActiveSection }) => {
               {/* Mobile: Horizontal Scroll, Desktop: Grid */}
               <div className="flex lg:grid lg:grid-cols-2 gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
                 {favoriteGames.map((game, index) => (
-                  <div key={index} className="min-w-[280px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-orange-200 dark:border-ff-orange-700 rounded-xl p-4 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                  <div key={index} className="min-w-[280px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-orange-200 dark:border-ff-orange-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 bg-gradient-to-br from-ff-orange-500 to-ff-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-ff-orange-500/30 dark:shadow-ff-orange-500/50 ring-2 ring-ff-orange-400/30 dark:ring-ff-orange-400/50">
+                      <div 
+                        className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
+                        style={{ background: 'linear-gradient(135deg, #f97316, #ea580c)' }}>
                         <span className="material-icons text-white text-lg">sports_esports</span>
                       </div>
                       <div className="flex-1 min-w-0">
@@ -117,11 +119,13 @@ const Gaming = ({ setActiveSection }) => {
                 📚 BACKLOGGD
               </h3>
               
-              <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-red-200 dark:border-ff-red-700 rounded-xl p-4 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-red-200 dark:border-ff-red-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="space-y-3">
                   {/* Profile Header */}
                   <div className="text-center">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 mx-auto bg-gradient-to-br from-ff-red-500 to-ff-red-600 rounded-full flex items-center justify-center shadow-lg shadow-ff-red-500/30 dark:shadow-ff-red-500/50 ring-2 ring-ff-red-400/30 dark:ring-ff-red-400/50 mb-2 sm:mb-3">
+                    <div 
+                      className="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-full flex items-center justify-center shadow-lg ring-2 ring-white/20 mb-2 sm:mb-3"
+                      style={{ background: 'linear-gradient(135deg, #ef4444, #dc2626)' }}>
                       <span className="text-2xl sm:text-3xl">📚</span>
                     </div>
                     <h4 className="font-bold text-base sm:text-lg text-ff-slate-800 dark:text-ff-slate-200">
@@ -180,9 +184,11 @@ const Gaming = ({ setActiveSection }) => {
             </h3>
             <div className="flex lg:grid lg:grid-cols-3 gap-4 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
               {gameDevProjects.map((project, index) => (
-                <div key={index} className="min-w-[300px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-gold-200 dark:border-ff-gold-700 rounded-xl p-4 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                <div key={index} className="min-w-[300px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-gold-200 dark:border-ff-gold-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-ff-gold-500 to-ff-gold-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-ff-gold-500/30 dark:shadow-ff-gold-500/50 ring-2 ring-ff-gold-400/30 dark:ring-ff-gold-400/50">
+                    <div 
+                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
+                      style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)' }}>
                       <span className="material-icons text-white">code</span>
                     </div>
                     <div className="flex-1 min-w-0">

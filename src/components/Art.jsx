@@ -78,9 +78,11 @@ const Art = ({ setActiveSection }) => {
             </h3>
             <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
               {portfolioItems.slice(0, 3).map((item) => (
-                <div key={item.id} className="min-w-[260px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-purple-200 dark:border-ff-purple-700 rounded-xl p-4 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                <div key={item.id} className="min-w-[260px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-purple-200 dark:border-ff-purple-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 bg-gradient-to-br from-ff-purple-500 to-ff-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-ff-purple-500/30 dark:shadow-ff-purple-500/50 ring-2 ring-ff-purple-400/30 dark:ring-ff-purple-400/50">
+                    <div 
+                      className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
+                      style={{ background: 'linear-gradient(135deg, #a855f7, #9333ea)' }}>
                       <span className="text-xl">{item.image}</span>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -103,7 +105,7 @@ const Art = ({ setActiveSection }) => {
             </h3>
             <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
               {tools.slice(0, 3).map((tool, index) => (
-                <div key={index} className="min-w-[240px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-pink-200 dark:border-ff-pink-700 rounded-xl p-4 shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                <div key={index} className="min-w-[240px] lg:min-w-0 bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-pink-200 dark:border-ff-pink-700 rounded-xl p-4 shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
                       <span className="text-xl">{tool.icon}</span>
@@ -128,19 +130,19 @@ const Art = ({ setActiveSection }) => {
               STATS
             </h3>
             <div className="grid grid-cols-2 lg:flex lg:flex-col gap-3">
-              <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-gold-200 dark:border-ff-gold-700 rounded-xl p-3 text-center shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-gold-200 dark:border-ff-gold-700 rounded-xl p-3 text-center shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="text-2xl font-bold text-ff-gold-700 dark:text-ff-gold-300 mb-1">500+</div>
                 <div className="text-xs text-ff-slate-700 dark:text-ff-slate-300">Artworks</div>
               </div>
-              <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-purple-200 dark:border-ff-purple-700 rounded-xl p-3 text-center shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-purple-200 dark:border-ff-purple-700 rounded-xl p-3 text-center shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="text-2xl font-bold text-ff-purple-700 dark:text-ff-purple-300 mb-1">6</div>
                 <div className="text-xs text-ff-slate-700 dark:text-ff-slate-300">Software</div>
               </div>
-              <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-blue-200 dark:border-ff-blue-700 rounded-xl p-3 text-center shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-blue-200 dark:border-ff-blue-700 rounded-xl p-3 text-center shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="text-2xl font-bold text-ff-blue-700 dark:text-ff-blue-300 mb-1">3+</div>
                 <div className="text-xs text-ff-slate-700 dark:text-ff-slate-300">Years</div>
               </div>
-              <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-green-200 dark:border-ff-green-700 rounded-xl p-3 text-center shadow-lg shadow-ff-slate-200 dark:shadow-ff-slate-900/50 transition-all duration-500">
+              <div className="bg-white/90 backdrop-blur-sm dark:bg-ff-slate-800/95 border-2 border-ff-green-200 dark:border-ff-green-700 rounded-xl p-3 text-center shadow-lg shadow-ff-red-200/50 dark:shadow-ff-slate-900/50 transition-all duration-500">
                 <div className="text-2xl font-bold text-ff-green-700 dark:text-ff-green-300 mb-1">15+</div>
                 <div className="text-xs text-ff-slate-700 dark:text-ff-slate-300">Styles</div>
               </div>

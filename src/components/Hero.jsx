@@ -31,9 +31,9 @@ const Hero = ({ setActiveSection }) => {
         {/* Decorative elements - removed */}
       </div>
 
-      {/* Decorative glows - visible in both modes */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-ff-red-400/8 dark:bg-ff-red-500/10 rounded-full blur-3xl transition-colors duration-500"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-ff-pink-400/8 dark:bg-ff-pink-500/10 rounded-full blur-3xl transition-colors duration-500"></div>
+      {/* Decorative glows - stronger in light mode */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-ff-red-300/20 dark:bg-ff-red-500/10 rounded-full blur-3xl transition-colors duration-500"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-ff-pink-300/20 dark:bg-ff-pink-500/10 rounded-full blur-3xl transition-colors duration-500"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Mobile: Compact Centered, Desktop: Asymmetric */}
