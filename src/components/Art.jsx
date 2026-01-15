@@ -67,8 +67,8 @@ const Art = ({ setActiveSection }) => {
     >
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-ff-purple-400/10 dark:bg-ff-purple-500/8 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-64 h-64 bg-ff-pink-400/10 dark:bg-ff-pink-500/8 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 bg-purple-200/15 dark:bg-ff-purple-500/8 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-64 h-64 bg-indigo-200/15 dark:bg-ff-pink-500/8 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

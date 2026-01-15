@@ -30,8 +30,8 @@ const Footer = () => {
   return (
     <footer className="relative overflow-hidden bg-gradient-to-r from-ff-slate-100 via-ff-red-100 to-ff-purple-100 dark:from-ff-slate-900 dark:via-ff-red-900/50 dark:to-ff-purple-900/50 text-ff-slate-800 dark:text-white font-body border-t-2 border-ff-red-300 dark:border-ff-red-700">
       {/* Decorative glow */}
-      <div className="absolute top-0 left-10 w-64 h-64 bg-ff-red-500/10 dark:bg-ff-red-500/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-10 w-64 h-64 bg-ff-purple-500/10 dark:bg-ff-purple-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 left-10 w-64 h-64 bg-indigo-200/10 dark:bg-ff-red-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-10 w-64 h-64 bg-purple-200/10 dark:bg-ff-purple-500/5 rounded-full blur-3xl"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">

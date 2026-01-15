@@ -1,134 +1,269 @@
 import React, { useState, useEffect } from 'react'
+import { useTheme } from '../hooks/useTheme'
 
 export const ArtShowcase = () => {
   const [activeIndex, setActiveIndex] = useState(0)
   const [isHovering, setIsHovering] = useState(false)
+  const [progressKey, setProgressKey] = useState(0)
+  const { isDark } = useTheme()
 
-  const artworks = [
+  const roles = [
     {
-      title: 'Art',
-      category: 'Digital Character Designer & Illustrator',
-      color: 'from-purple-500 to-pink-500',
-      icon: '🎨'
+      title: 'Artist',
+      subtitle: 'Digital Creator',
+      description: 'Character Design & Illustration',
+      icon: '🎨',
+      accentColor: '#ef4444',
     },
     {
-      title: 'Software Engineer',
-      category: 'Building Interactive Experiences',
-      color: 'from-blue-500 to-cyan-500',
-      icon: '💻'
+      title: 'Developer',
+      subtitle: 'Code Craftsman',
+      description: 'Building Interactive Experiences',
+      icon: '💻',
+      accentColor: '#f59e0b',
     },
     {
-      title: 'Game Enthusiast',
-      category: 'Exploring Virtual Worlds & Stories',
-      color: 'from-orange-500 to-red-500',
-      icon: '🎮'
+      title: 'Gamer',
+      subtitle: 'Virtual Explorer',
+      description: 'Stories & Adventures',
+      icon: '🎮',
+      accentColor: '#ea580c',
     }
   ]
 
   useEffect(() => {
     if (isHovering) return
-
+    setProgressKey(prev => prev + 1)
     const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % artworks.length)
-    }, 3500)
-
+      setActiveIndex((prev) => (prev + 1) % roles.length)
+    }, 4000)
     return () => clearInterval(interval)
-  }, [isHovering, artworks.length])
+  }, [isHovering, roles.length, activeIndex])
+
+  const activeRole = roles[activeIndex]
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center gap-6 py-4">
-      {/* Main Content Area */}
-      <div className="flex items-center justify-center gap-6">
-        {/* Canvas Frame */}
-        <div
-          className="relative w-56 h-56 sm:w-72 sm:h-72 flex-shrink-0"
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-        >
-          {/* Background Glow */}
-          <div className={`absolute -inset-4 bg-gradient-to-br ${artworks[activeIndex].color} opacity-30 dark:opacity-20 blur-3xl transition-all duration-700`}></div>
+    <div 
+      className="relative w-full h-full flex items-center justify-center"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      {/* Animated Background Glow */}
+      <div 
+        className="absolute w-[400px] h-[400px] rounded-full blur-[100px] transition-all duration-1000"
+        style={{ 
+          background: `radial-gradient(circle, ${activeRole.accentColor}${isDark ? '30' : '40'} 0%, transparent 70%)`,
+          opacity: isDark ? 0.25 : 0.35
+        }}
+      />
 
-          {/* Frame */}
-          <div className="relative w-full h-full border-6 sm:border-8 border-ff-slate-800 dark:border-ff-slate-600 bg-gradient-to-br from-ff-slate-50 via-white to-ff-slate-100 dark:bg-ff-slate-800 rounded-2xl shadow-2xl overflow-hidden transition-all duration-300">
-            {/* Inner Border */}
-            <div className="absolute inset-0 border-3 sm:border-4 border-ff-red-200 dark:border-ff-slate-700 rounded-xl transition-colors duration-300"></div>
+      {/* Main Card Container */}
+      <div className="relative z-10 flex flex-col items-center">
+        {/* Card with Outer Ring */}
+        <div className="relative mb-6">
+          {/* Outer Ring - Rotating */}
+          <div 
+            className="absolute -inset-4 rounded-3xl border-2 border-dashed animate-spin-slow"
+            style={{ 
+              borderColor: activeRole.accentColor,
+              animationDuration: '20s',
+              opacity: isDark ? 0.2 : 0.3
+            }}
+          />
+          
+          {/* Main Display Card */}
+          <div 
+            className="relative w-64 h-64 lg:w-72 lg:h-72 rounded-3xl overflow-hidden transition-all duration-500"
+            style={{
+              background: isDark 
+                ? 'linear-gradient(145deg, #1c1917 0%, #0c0a09 100%)' 
+                : 'linear-gradient(145deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.92) 100%)',
+              boxShadow: isDark
+                ? `0 25px 60px -15px ${activeRole.accentColor}30, 0 10px 30px -10px rgba(0,0,0,0.5)`
+                : `0 25px 60px -15px ${activeRole.accentColor}40, 0 10px 30px -10px rgba(0,0,0,0.1)`,
+            }}
+          >
+            {/* Accent gradient overlay */}
+            <div 
+              className="absolute inset-0 transition-all duration-700"
+              style={{
+                background: `linear-gradient(135deg, ${activeRole.accentColor}${isDark ? '15' : '12'} 0%, ${activeRole.accentColor}${isDark ? '08' : '05'} 100%)`
+              }}
+            />
+
+            {/* Grid Pattern */}
+            <div 
+              className="absolute inset-0"
+              style={{ opacity: isDark ? 0.06 : 0.03 }}
+            >
+              <div 
+                className="absolute inset-0 bg-[size:20px_20px]"
+                style={{
+                  backgroundImage: `linear-gradient(${isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.4)'} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.4)'} 1px, transparent 1px)`
+                }}
+              />
+            </div>
 
             {/* Content */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${artworks[activeIndex].color} opacity-[0.12] dark:opacity-25 transition-all duration-700`}></div>
-
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-6xl sm:text-7xl animate-float drop-shadow-2xl">
-                {artworks[activeIndex].icon}
+            <div className="relative h-full flex flex-col items-center justify-center p-6">
+              {/* Icon with glow */}
+              <div className="relative mb-4">
+                <div 
+                  className="absolute inset-0 blur-xl scale-150"
+                  style={{ 
+                    background: activeRole.accentColor,
+                    opacity: isDark ? 0.4 : 0.5
+                  }}
+                />
+                <span className="relative text-6xl lg:text-7xl drop-shadow-lg animate-float">
+                  {activeRole.icon}
+                </span>
               </div>
+
+              {/* Title */}
+              <h3 
+                className="text-2xl lg:text-3xl font-bold mb-1 tracking-tight"
+                style={{ 
+                  color: isDark ? '#ffffff' : '#1c1917',
+                  textShadow: isDark ? '0 2px 10px rgba(0,0,0,0.3)' : '0 2px 10px rgba(0,0,0,0.1)'
+                }}
+              >
+                {activeRole.title}
+              </h3>
+
+              {/* Subtitle with accent */}
+              <div 
+                className="text-sm font-semibold tracking-widest uppercase mb-2"
+                style={{ color: activeRole.accentColor }}
+              >
+                {activeRole.subtitle}
+              </div>
+
+              {/* Description */}
+              <p 
+                className="text-xs text-center max-w-[180px]"
+                style={{ color: isDark ? '#a8a29e' : '#78716c' }}
+              >
+                {activeRole.description}
+              </p>
             </div>
 
             {/* Corner Accents */}
-            <div className="absolute top-2 sm:top-3 left-2 sm:left-3 w-5 h-5 sm:w-6 sm:h-6 border-l-2 border-t-2 border-ff-red-400 dark:border-ff-slate-400/40 transition-colors duration-300"></div>
-            <div className="absolute top-2 sm:top-3 right-2 sm:right-3 w-5 h-5 sm:w-6 sm:h-6 border-r-2 border-t-2 border-ff-red-400 dark:border-ff-slate-400/40 transition-colors duration-300"></div>
-            <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 w-5 h-5 sm:w-6 sm:h-6 border-l-2 border-b-2 border-ff-red-400 dark:border-ff-slate-400/40 transition-colors duration-300"></div>
-            <div className="absolute bottom-2 sm:bottom-3 right-2 sm:right-3 w-5 h-5 sm:w-6 sm:h-6 border-r-2 border-b-2 border-ff-red-400 dark:border-ff-slate-400/40 transition-colors duration-300"></div>
+            <div 
+              className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 rounded-tl-lg transition-colors duration-500"
+              style={{ borderColor: activeRole.accentColor }}
+            />
+            <div 
+              className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 rounded-tr-lg transition-colors duration-500"
+              style={{ borderColor: activeRole.accentColor }}
+            />
+            <div 
+              className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 rounded-bl-lg transition-colors duration-500"
+              style={{ borderColor: activeRole.accentColor }}
+            />
+            <div 
+              className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 rounded-br-lg transition-colors duration-500"
+              style={{ borderColor: activeRole.accentColor }}
+            />
           </div>
         </div>
 
-        {/* Sidebar Thumbnails */}
-        <div className="hidden lg:flex flex-col gap-2.5">
-          {artworks.map((artwork, index) => (
+        {/* Role Selector Pills */}
+        <div className="flex items-center gap-3">
+          {roles.map((role, index) => (
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
-              className={`relative w-12 h-12 rounded-lg transition-all duration-300 overflow-hidden ${
+              className={`relative flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
                 index === activeIndex
-                  ? 'scale-110 shadow-xl'
-                  : 'opacity-70 hover:opacity-100 hover:scale-105'
+                  ? 'scale-105'
+                  : 'hover:scale-102'
               }`}
-              aria-label={`View ${artwork.title}`}
+              style={{
+                background: index === activeIndex 
+                  ? `linear-gradient(135deg, ${role.accentColor}${isDark ? '25' : '20'} 0%, ${role.accentColor}${isDark ? '15' : '10'} 100%)`
+                  : 'transparent',
+                border: index === activeIndex 
+                  ? `2px solid ${role.accentColor}${isDark ? '50' : '60'}`
+                  : '2px solid transparent',
+                boxShadow: index === activeIndex 
+                  ? `0 4px 15px ${role.accentColor}${isDark ? '25' : '30'}`
+                  : 'none',
+                opacity: index === activeIndex ? 1 : 0.6
+              }}
+              aria-label={`View ${role.title}`}
             >
-              {/* Background */}
-              <div className={`absolute inset-0 transition-all duration-300 ${
-                index === activeIndex
-                  ? `bg-gradient-to-br ${artwork.color}`
-                  : 'bg-gradient-to-br from-ff-red-50 to-ff-pink-50 dark:from-ff-slate-700 dark:to-ff-slate-800'
-              }`}></div>
-
-              {/* Border for inactive */}
-              {index !== activeIndex && (
-                <div className="absolute inset-0 border-2 border-ff-red-300 dark:border-ff-slate-500 rounded-lg transition-colors duration-300"></div>
+              <span className="text-lg">{role.icon}</span>
+              <span 
+                className="text-sm font-semibold transition-colors duration-300"
+                style={{ 
+                  color: index === activeIndex 
+                    ? (isDark ? '#ffffff' : '#1c1917')
+                    : (isDark ? '#a8a29e' : '#78716c')
+                }}
+              >
+                {role.title}
+              </span>
+              
+              {/* Active indicator dot */}
+              {index === activeIndex && (
+                <div 
+                  className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full"
+                  style={{ background: role.accentColor }}
+                />
               )}
-
-              {/* Icon */}
-              <div className="relative flex items-center justify-center h-full">
-                <span className="text-2xl">{artwork.icon}</span>
-              </div>
             </button>
           ))}
         </div>
+
+        {/* Progress Bar */}
+        <div
+          className="mt-4 w-48 h-1 rounded-full overflow-hidden"
+          style={{ background: isDark ? '#44403c' : '#e7e5e4' }}
+        >
+          {!isHovering && (
+            <div
+              key={progressKey}
+              className="h-full rounded-full"
+              style={{
+                background: activeRole.accentColor,
+                animation: 'progress 4s linear forwards'
+              }}
+            />
+          )}
+          {isHovering && (
+            <div
+              className="h-full rounded-full"
+              style={{
+                background: activeRole.accentColor,
+                width: '100%'
+              }}
+            />
+          )}
+        </div>
       </div>
 
-      {/* Title and Category */}
-      <div className="text-center space-y-1">
-        <h3 className={`text-lg sm:text-xl font-bold bg-gradient-to-r ${artworks[activeIndex].color} bg-clip-text text-transparent transition-all duration-500`}>
-          {artworks[activeIndex].title}
-        </h3>
-        <p className="text-xs text-ff-slate-600 dark:text-ff-slate-400">
-          {artworks[activeIndex].category}
-        </p>
-      </div>
-
-      {/* Navigation Dots */}
-      <div className="flex gap-2">
-        {artworks.map((artwork, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveIndex(index)}
-            className={`transition-all duration-300 rounded-full ${
-              index === activeIndex
-                ? `w-6 h-2 bg-gradient-to-r ${artwork.color}`
-                : 'w-2 h-2 bg-ff-red-400 dark:bg-ff-slate-600 hover:bg-ff-red-500 dark:hover:bg-ff-slate-500'
-            }`}
-            aria-label={`View ${artwork.title}`}
-          />
-        ))}
-      </div>
+      {/* CSS Animation */}
+      <style>{`
+        @keyframes progress {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+          animation: spin-slow 20s linear infinite;
+        }
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+      `}</style>
     </div>
   )
 }

@@ -31,9 +31,9 @@ const Hero = ({ setActiveSection }) => {
         {/* Decorative elements - removed */}
       </div>
 
-      {/* Decorative glows - stronger in light mode */}
-      <div className="absolute top-20 left-10 w-96 h-96 bg-ff-red-300/20 dark:bg-ff-red-500/10 rounded-full blur-3xl transition-colors duration-500"></div>
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-ff-pink-300/20 dark:bg-ff-pink-500/10 rounded-full blur-3xl transition-colors duration-500"></div>
+      {/* Decorative glows - rose in light, red in dark */}
+      <div className="absolute top-20 left-10 w-80 h-80 bg-rose-300/20 dark:bg-ff-red-500/10 rounded-full blur-3xl transition-colors duration-500"></div>
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-200/20 dark:bg-ff-pink-500/10 rounded-full blur-3xl transition-colors duration-500"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Mobile: Compact Centered, Desktop: Asymmetric */}
@@ -57,11 +57,8 @@ const Hero = ({ setActiveSection }) => {
 
           {/* Mobile: Hidden, Desktop: Show */}
           <div className="hidden lg:flex lg:col-span-5 items-center justify-center">
-            <div className="relative w-full h-full min-h-[500px]">
-              <div className="absolute inset-0 bg-gradient-to-r from-ff-red-500/10 to-ff-pink-500/10 dark:from-ff-red-600/20 dark:to-ff-pink-600/20 rounded-full blur-3xl"></div>
-              <div className="relative w-full h-full">
-                <ArtShowcase />
-              </div>
+            <div className="relative w-full min-h-[450px] flex items-center justify-center">
+              <ArtShowcase />
             </div>
           </div>
         </div>

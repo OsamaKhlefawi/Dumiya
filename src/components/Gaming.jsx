@@ -60,9 +60,9 @@ const Gaming = ({ setActiveSection }) => {
         {/* Decorative elements - removed */}
       </div>
 
-      {/* Decorative glows - consistent in both modes */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-ff-orange-400/5 dark:bg-ff-orange-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
-      <div className="absolute bottom-20 right-10 w-64 h-64 bg-ff-red-400/5 dark:bg-ff-red-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
+      {/* Decorative glows - warm amber tones */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-amber-300/10 dark:bg-ff-orange-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
+      <div className="absolute bottom-20 right-10 w-64 h-64 bg-orange-300/10 dark:bg-ff-red-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -148,8 +148,8 @@ const Gaming = ({ setActiveSection }) => {
                       <div className="text-xl sm:text-2xl font-bold text-ff-gold-700 dark:text-ff-gold-300">{backloggdProfile.stats.backlog}</div>
                       <div className="text-xs text-ff-slate-600 dark:text-ff-slate-400">Backlog</div>
                     </div>
-                    <div className="bg-white/60 dark:bg-ff-slate-700/50 rounded-lg p-2 sm:p-3 text-center border border-ff-pink-300 dark:border-ff-pink-800">
-                      <div className="text-xl sm:text-2xl font-bold text-ff-pink-700 dark:text-ff-pink-300">⭐{backloggdProfile.stats.rating}</div>
+                    <div className="bg-white/60 dark:bg-ff-slate-700/50 rounded-lg p-2 sm:p-3 text-center border border-amber-300 dark:border-amber-800">
+                      <div className="text-xl sm:text-2xl font-bold text-amber-700 dark:text-amber-300">⭐{backloggdProfile.stats.rating}</div>
                       <div className="text-xs text-ff-slate-600 dark:text-ff-slate-400">Avg Rating</div>
                     </div>
                   </div>

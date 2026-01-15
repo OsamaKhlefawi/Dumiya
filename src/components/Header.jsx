@@ -29,6 +29,8 @@ const Header = ({ activeSection, setActiveSection }) => {
     { id: 'about', label: 'About', icon: 'person' },
     { id: 'gaming', label: 'Gaming', icon: 'sports_esports' },
     { id: 'art', label: 'Art', icon: 'palette' },
+    { id: 'shows-movies', label: 'Shows', icon: 'movie' },
+    { id: 'experience', label: 'Work', icon: 'work' },
     { id: 'contact', label: 'Contact', icon: 'email' }
   ], [])
 
@@ -77,8 +79,8 @@ const Header = ({ activeSection, setActiveSection }) => {
                 }`}
                 style={{
                   backgroundColor: activeSection === item.id
-                    ? (isDark ? 'rgb(68 64 60)' : 'rgb(254 226 226)')
-                    : (isDark ? 'rgb(28 25 23)' : 'rgb(250 250 249)')
+                    ? (isDark ? 'rgb(68 64 60)' : 'rgb(253 164 175)')
+                    : (isDark ? 'rgb(28 25 23)' : 'rgb(255 255 255)')
                 }}
               ></div>
               
@@ -88,8 +90,8 @@ const Header = ({ activeSection, setActiveSection }) => {
                 }`}
                 style={{
                   backgroundColor: activeSection === item.id 
-                    ? (isDark ? 'rgb(68 64 60)' : 'rgb(254 226 226)') 
-                    : (isDark ? 'rgb(28 25 23)' : 'rgb(250 250 249)')
+                    ? (isDark ? 'rgb(68 64 60)' : 'rgb(253 164 175)') 
+                    : (isDark ? 'rgb(28 25 23)' : 'rgb(255 255 255)')
                 }}
                 onClick={() => scrollToSection(item.id)}
                 onMouseEnter={() => setHoveredItem(item.id)}
@@ -108,21 +110,29 @@ const Header = ({ activeSection, setActiveSection }) => {
               </button>
               
               {hoveredItem === item.id && (
-                <div className="absolute left-20 top-0 bg-white dark:bg-ff-slate-800 px-4 py-3 rounded-xl shadow-xl min-w-max z-50 border border-ff-slate-200 dark:border-ff-slate-700">
-                  <div className="flex items-center gap-3">
-                    <span className="material-icons text-ff-slate-700 dark:text-ff-slate-300">{item.icon}</span>
-                    <div className="font-bold text-ff-slate-800 dark:text-ff-slate-200">{item.label}</div>
+                <div className="absolute left-20 top-1/2 -translate-y-1/2 bg-white dark:bg-ff-slate-800 px-4 py-2.5 rounded-xl shadow-xl min-w-max z-50 border border-ff-slate-200 dark:border-ff-slate-700">
+                  <div className="flex items-center gap-2">
+                    <div className="font-semibold text-ff-slate-800 dark:text-ff-slate-200">{item.label}</div>
+                    {activeSection === item.id && (
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-400 font-medium">
+                        current
+                      </span>
+                    )}
                   </div>
                 </div>
               )}
             </div>
           ))}
+          
+          {/* Separator */}
+          <div className="w-12 mx-2 h-px bg-ff-stone-300 dark:bg-ff-stone-600"></div>
+          
+          {/* Theme Toggle integrated into nav */}
+          <div className="pl-2">
+            <ThemeToggle />
+          </div>
         </div>
       </nav>
-
-      <div className="fixed top-4 right-4 z-50 hidden lg:block">
-        <ThemeToggle />
-      </div>
 
       {/* MOBILE NAVIGATION - ONLY VISIBLE ON MOBILE */}
       <div className="lg:hidden">

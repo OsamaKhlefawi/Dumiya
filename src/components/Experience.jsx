@@ -119,9 +119,9 @@ const Experience = ({ setActiveSection }) => {
         {/* Decorative elements - removed */}
       </div>
 
-      {/* Decorative glows - consistent in both modes */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-ff-red-400/5 dark:bg-ff-red-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
-      <div className="absolute bottom-20 right-10 w-64 h-64 bg-ff-pink-400/5 dark:bg-ff-pink-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
+      {/* Decorative glows - warm amber tones */}
+      <div className="absolute top-20 left-10 w-64 h-64 bg-amber-200/15 dark:bg-ff-red-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
+      <div className="absolute bottom-20 right-10 w-64 h-64 bg-orange-200/15 dark:bg-ff-pink-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -170,16 +170,16 @@ const Experience = ({ setActiveSection }) => {
 
           {/* Projects - Mobile: Horizontal Scroll */}
           <div className="space-y-4 lg:space-y-6">
-            <h3 className="text-2xl lg:text-2xl font-bold text-ff-pink-700 dark:text-ff-pink-300 font-sixtyfour">
+            <h3 className="text-2xl lg:text-2xl font-bold text-amber-700 dark:text-amber-300 font-sixtyfour">
               PROJECTS
             </h3>
             <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
               {projects.slice(0, 3).map((project, index) => (
-                <div key={index} className="min-w-[280px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-pink-300 dark:border-ff-pink-700 rounded-xl p-4 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                <div key={index} className="min-w-[280px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-amber-200 dark:border-amber-700 rounded-xl p-4 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
                   <div className="flex items-center gap-3 mb-2">
                     <div 
                       className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
-                      style={{ background: 'linear-gradient(135deg, #ec4899, #db2777)' }}>
+                      style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)' }}>
                       <span className="material-icons text-white text-lg">rocket_launch</span>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -197,16 +197,16 @@ const Experience = ({ setActiveSection }) => {
 
           {/* Achievements - Mobile: Compact */}
           <div className="space-y-4 lg:space-y-6">
-            <h3 className="text-2xl lg:text-2xl font-bold text-ff-gold-700 dark:text-ff-gold-300 font-sixtyfour">
+            <h3 className="text-2xl lg:text-2xl font-bold text-orange-700 dark:text-orange-300 font-sixtyfour">
               ACHIEVEMENTS
             </h3>
             <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0 scrollbar-hide">
               {certifications.slice(0, 2).map((cert, index) => (
-                <div key={index} className="min-w-[280px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-ff-gold-300 dark:border-ff-gold-700 rounded-xl p-4 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                <div key={index} className="min-w-[280px] lg:min-w-0 bg-white dark:bg-ff-slate-800 border-2 border-orange-200 dark:border-orange-700 rounded-xl p-4 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
                   <div className="flex items-center gap-3 mb-2">
                     <div 
                       className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
-                      style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)' }}>
+                      style={{ background: 'linear-gradient(135deg, #fb923c, #ea580c)' }}>
                       <span className="material-icons text-white text-lg">emoji_events</span>
                     </div>
                     <div className="flex-1 min-w-0">
@@ -221,12 +221,12 @@ const Experience = ({ setActiveSection }) => {
               ))}
             </div>
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-blue-200 dark:border-ff-blue-700 rounded-xl p-3 text-center shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
-                <div className="text-xl font-bold text-ff-blue-700 dark:text-ff-blue-300 mb-1">3+</div>
+              <div className="bg-white dark:bg-ff-slate-800 border-2 border-amber-200 dark:border-amber-700 rounded-xl p-3 text-center shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                <div className="text-xl font-bold text-amber-700 dark:text-amber-300 mb-1">3+</div>
                 <div className="text-xs text-ff-slate-700 dark:text-ff-slate-300">Years</div>
               </div>
-              <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-green-200 dark:border-ff-green-700 rounded-xl p-3 text-center shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
-                <div className="text-xl font-bold text-ff-green-700 dark:text-ff-green-300 mb-1">20+</div>
+              <div className="bg-white dark:bg-ff-slate-800 border-2 border-orange-200 dark:border-orange-700 rounded-xl p-3 text-center shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
+                <div className="text-xl font-bold text-orange-700 dark:text-orange-300 mb-1">20+</div>
                 <div className="text-xs text-ff-slate-700 dark:text-ff-slate-300">Projects</div>
               </div>
             </div>

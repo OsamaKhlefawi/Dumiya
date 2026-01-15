@@ -24,9 +24,9 @@ const About = ({ setActiveSection }) => {
         {/* Decorative elements - removed */}
       </div>
 
-      {/* Decorative glows - consistent in both modes */}
-      <div className="absolute top-40 -left-20 w-80 h-80 bg-ff-red-400/5 dark:bg-ff-red-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
-      <div className="absolute bottom-40 -right-20 w-80 h-80 bg-ff-pink-400/5 dark:bg-ff-pink-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
+      {/* Decorative glows - warm amber tones */}
+      <div className="absolute top-40 -left-20 w-80 h-80 bg-amber-200/20 dark:bg-ff-red-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
+      <div className="absolute bottom-40 -right-20 w-80 h-80 bg-orange-200/20 dark:bg-ff-pink-500/8 rounded-full blur-3xl transition-colors duration-500"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -62,25 +62,25 @@ const About = ({ setActiveSection }) => {
         {/* Detailed Sections - Stack on mobile, Grid on desktop */}
         <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {/* Art Section - Mobile: Compact Card */}
-          <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-purple-300 dark:border-ff-purple-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
+          <div className="bg-white dark:bg-ff-slate-800 border-2 border-amber-200 dark:border-amber-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
             <div className="flex items-center gap-3 mb-3">
               <div 
                 className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
-                style={{ background: 'linear-gradient(135deg, #a855f7, #ec4899)' }}>
+                style={{ background: 'linear-gradient(135deg, #f59e0b, #d97706)' }}>
                 <span className="material-icons text-white">palette</span>
               </div>
-              <h3 className="text-lg lg:text-2xl font-bold text-ff-purple-700 dark:text-ff-purple-300 font-sixtyfour">ART</h3>
+              <h3 className="text-lg lg:text-2xl font-bold text-amber-700 dark:text-amber-300 font-sixtyfour">ART</h3>
             </div>
             <p className="text-xs lg:text-base text-ff-slate-700 dark:text-ff-slate-300 mb-3 leading-relaxed">
               [Placeholder: Describe your art journey - what kind of art you create (digital character design, illustration, etc.), your artistic style, favorite subjects to draw, tools and software you use, and what inspires your creativity.]
             </p>
             <div className="space-y-1.5">
               <div className="flex items-center gap-2 text-xs text-ff-slate-700 dark:text-ff-slate-300">
-                <span className="material-icons text-ff-purple-600 dark:text-ff-purple-400 text-sm">check_circle</span>
+                <span className="material-icons text-amber-600 dark:text-amber-400 text-sm">check_circle</span>
                 <span>Digital Character Design</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-ff-slate-700 dark:text-ff-slate-300">
-                <span className="material-icons text-ff-purple-600 dark:text-ff-purple-400 text-sm">check_circle</span>
+                <span className="material-icons text-amber-600 dark:text-amber-400 text-sm">check_circle</span>
                 <span>Illustration</span>
               </div>
             </div>
@@ -112,25 +112,25 @@ const About = ({ setActiveSection }) => {
           </div>
 
           {/* Coding Section - Mobile: Compact Card */}
-          <div className="bg-white dark:bg-ff-slate-800 border-2 border-ff-blue-300 dark:border-ff-blue-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
+          <div className="bg-white dark:bg-ff-slate-800 border-2 border-orange-200 dark:border-orange-700 rounded-xl p-4 lg:p-6 shadow-lg shadow-ff-slate-300 dark:shadow-ff-slate-900/50 transition-all duration-500">
             <div className="flex items-center gap-3 mb-3">
               <div 
                 className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-white/20"
-                style={{ background: 'linear-gradient(135deg, #3b82f6, #06b6d4)' }}>
+                style={{ background: 'linear-gradient(135deg, #fb923c, #ea580c)' }}>
                 <span className="material-icons text-white">code</span>
               </div>
-              <h3 className="text-lg lg:text-2xl font-bold text-ff-blue-700 dark:text-ff-blue-300 font-sixtyfour">CODING</h3>
+              <h3 className="text-lg lg:text-2xl font-bold text-orange-700 dark:text-orange-300 font-sixtyfour">CODING</h3>
             </div>
             <p className="text-xs lg:text-base text-ff-slate-700 dark:text-ff-slate-300 mb-3 leading-relaxed">
               [Placeholder: Explain your coding journey - what got you into programming, languages and frameworks you work with, types of projects you build, areas of interest (web dev, game dev, etc.), and how you combine coding with your creative side.]
             </p>
             <div className="space-y-1.5">
               <div className="flex items-center gap-2 text-xs text-ff-slate-700 dark:text-ff-slate-300">
-                <span className="material-icons text-ff-blue-600 dark:text-ff-blue-400 text-sm">check_circle</span>
+                <span className="material-icons text-orange-600 dark:text-orange-400 text-sm">check_circle</span>
                 <span>[Programming language]</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-ff-slate-700 dark:text-ff-slate-300">
-                <span className="material-icons text-ff-blue-600 dark:text-ff-blue-400 text-sm">check_circle</span>
+                <span className="material-icons text-orange-600 dark:text-orange-400 text-sm">check_circle</span>
                 <span>[Framework/tool]</span>
               </div>
             </div>
